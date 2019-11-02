@@ -1,0 +1,43 @@
+#ifndef GRAPHICS_H
+#define GRAPHICS_H
+
+#include <SDL.h>
+#include <SDL_image.h>
+#include <SDL_ttf.h>
+#include <memory>
+#include <iostream>
+#include <string>
+
+class Graphics
+{
+public:
+	static const int SCREEN_WIDTH = 768;
+	static const int SCREEN_HEIGHT = 512;
+	const char* WINDOW_TITLE = "Roguelike";
+
+private:
+	static bool sInitialized;
+
+	std::unique_ptr<SDL_Window, decltype(&SDL_DestroyWindow)> mWindow;
+	std::unique_ptr<SDL_Renderer, decltype(&SDL_DestroyRenderer)> mRenderer;
+
+	Graphics();
+	~Graphics();
+
+	bool Init();
+
+public:
+	static Graphics& Instance();
+	static bool Initialized();
+
+	std::shared_ptr<SDL_Texture> LoadTexture(std::string path);
+	std::shared_ptr<SDL_Texture> CreateTextTexture(std::weak_ptr<TTF_Font> font, const std::string& text, SDL_Color color);
+
+	void ClearBackBuffer();
+
+	void DrawTexture(std::weak_ptr<SDL_Texture> tex, const SDL_Rect* clip = nullptr, const SDL_Rect* rend = nullptr, float angle = 0.0f, SDL_RendererFlip flip = SDL_FLIP_NONE);
+
+	void Render();
+};
+
+#endif

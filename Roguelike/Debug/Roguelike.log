@@ -1,0 +1,20 @@
+﻿  CaveGenerator.cpp
+c:\users\2339695\source\repos\roguelike\roguelike\rng.h(26): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+c:\users\2339695\source\repos\roguelike\roguelike\cavegenerator.cpp(119): warning C4018: '<': signed/unsigned mismatch
+c:\users\2339695\source\repos\roguelike\roguelike\cavegenerator.cpp(132): warning C4018: '<': signed/unsigned mismatch
+c:\users\2339695\source\repos\roguelike\roguelike\cavegenerator.cpp(261): warning C4018: '<': signed/unsigned mismatch
+c:\users\2339695\source\repos\roguelike\roguelike\cavegenerator.cpp(263): warning C4018: '<': signed/unsigned mismatch
+c:\users\2339695\source\repos\roguelike\roguelike\cavegenerator.cpp(267): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\2339695\source\repos\roguelike\roguelike\cavegenerator.cpp(267): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  Engine.cpp
+c:\users\2339695\source\repos\roguelike\roguelike\rng.h(26): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+  Map.cpp
+c:\users\2339695\source\repos\roguelike\roguelike\rng.h(26): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+c:\users\2339695\source\repos\roguelike\roguelike\map.cpp(10): warning C4244: '=': conversion from 'time_t' to 'int', possible loss of data
+c:\users\2339695\source\repos\roguelike\roguelike\map.cpp(25): warning C4244: '=': conversion from 'time_t' to 'int', possible loss of data
+  Room.cpp
+  main.cpp
+c:\users\2339695\source\repos\roguelike\roguelike\rng.h(26): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+  Generating Code...
+  LINK : C:\Users\2339695\source\repos\Roguelike\Debug\Roguelike.exe not found or not built by the last incremental link; performing full link
+  Roguelike.vcxproj -> C:\Users\2339695\source\repos\Roguelike\Debug\Roguelike.exe
