@@ -18,6 +18,12 @@ Map::~Map()
 	delete mMapGenerator;
 }
 
+bool Map::Walkable(int x, int y)
+{
+	//Coordinates are inside map and tile is floor
+	return (x >= 0 && x < mWidth && y >= 0 && y < mHeight) && mTiles[x + y * mWidth] == 0;
+}
+
 void Map::Update()
 {
 	if (InputHandler::Instance().KeyPressed(SDL_SCANCODE_SPACE))
