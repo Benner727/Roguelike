@@ -1,0 +1,28 @@
+﻿  AssetManager.cpp
+  Audio.cpp
+C:\Users\Danielle Hu\Documents\Github\Projects\Roguelike\Roguelike\AssetManager.h(4,10): fatal error C1083: Cannot open include file: 'SDL_mixer.h': No such file or directory
+  CaveGenerator.cpp
+C:\Users\Danielle Hu\Documents\Github\Projects\Roguelike\Roguelike\AssetManager.h(4,10): fatal error C1083: Cannot open include file: 'SDL_mixer.h': No such file or directory
+C:\Users\Danielle Hu\Documents\Github\Projects\Roguelike\Roguelike\RNG.h(26,53): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+C:\Users\Danielle Hu\Documents\Github\Projects\Roguelike\Roguelike\CaveGenerator.cpp(267,50): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Danielle Hu\Documents\Github\Projects\Roguelike\Roguelike\CaveGenerator.cpp(267,90): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Engine.cpp
+C:\Users\Danielle Hu\Documents\Github\Projects\Roguelike\Roguelike\CaveGenerator.cpp(267,31): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  Graphics.cpp
+C:\Users\Danielle Hu\Documents\Github\Projects\Roguelike\Roguelike\AssetManager.h(4,10): fatal error C1083: Cannot open include file: 'SDL_mixer.h': No such file or directory
+  InputHandler.cpp
+C:\Users\Danielle Hu\Documents\Github\Projects\Roguelike\Roguelike\Graphics.h(4,10): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  main.cpp
+C:\Users\Danielle Hu\Documents\Github\Projects\Roguelike\Roguelike\InputHandler.h(4,10): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  Map.cpp
+C:\Users\Danielle Hu\Documents\Github\Projects\Roguelike\Roguelike\AssetManager.h(4,10): fatal error C1083: Cannot open include file: 'SDL_mixer.h': No such file or directory
+  Room.cpp
+C:\Users\Danielle Hu\Documents\Github\Projects\Roguelike\Roguelike\AssetManager.h(4,10): fatal error C1083: Cannot open include file: 'SDL_mixer.h': No such file or directory
+  Sprite.cpp
+C:\Users\Danielle Hu\Documents\Github\Projects\Roguelike\Roguelike\Room.cpp(15,27): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  Text.cpp
+C:\Users\Danielle Hu\Documents\Github\Projects\Roguelike\Roguelike\AssetManager.h(4,10): fatal error C1083: Cannot open include file: 'SDL_mixer.h': No such file or directory
+  Timer.cpp
+C:\Users\Danielle Hu\Documents\Github\Projects\Roguelike\Roguelike\AssetManager.h(4,10): fatal error C1083: Cannot open include file: 'SDL_mixer.h': No such file or directory
+  Generating Code...
+C:\Users\Danielle Hu\Documents\Github\Projects\Roguelike\Roguelike\Timer.h(4,10): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory

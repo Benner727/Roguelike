@@ -13,11 +13,13 @@ Engine::Engine()
 	mQuit = !mGraphics.Initialized();
 
 	mMap = new Map(48 * 2, 32 * 2);
+	mPlayer = new Player();
 }
 
 Engine::~Engine()
 {
 	delete mMap;
+	delete mPlayer;
 }
 
 void Engine::EarlyUpdate()
@@ -31,6 +33,19 @@ void Engine::Update()
 {
 	//Update game here
 	mMap->Update();
+
+	if (mInputHandler.KeyPressed(SDL_SCANCODE_A)) {
+		mPlayer->MoveLeft();
+	}
+	else if (mInputHandler.KeyPressed(SDL_SCANCODE_D)) {
+		mPlayer->MoveRight();
+	}
+	else if (mInputHandler.KeyPressed(SDL_SCANCODE_S)) {
+		mPlayer->MoveDown();
+	}
+	else if (mInputHandler.KeyPressed(SDL_SCANCODE_W)) {
+		mPlayer->MoveUp();
+	}
 }
 
 void Engine::LateUpdate()
@@ -44,6 +59,7 @@ void Engine::Render()
 
 	//Render game here
 	mMap->Draw();
+	mPlayer->Draw();
 
 	mGraphics.Render();
 }

@@ -69,6 +69,9 @@
     <ClCompile Include="CaveGenerator.cpp">
       <Filter>Source Files\Game\Map</Filter>
     </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetManager.h">
@@ -112,6 +115,9 @@
     </ClInclude>
     <ClInclude Include="MapGenerator.h">
       <Filter>Header Files\Game\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files\Framework</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

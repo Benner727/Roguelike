@@ -6,6 +6,7 @@
 #include "Timer.h"
 
 #include "Map.h"
+#include "Player.h"
 
 class Engine
 {
@@ -21,6 +22,7 @@ private:
 
 	SDL_Event mEvent;
 
+	Player* mPlayer;
 	Map* mMap;
 
 	Engine();
