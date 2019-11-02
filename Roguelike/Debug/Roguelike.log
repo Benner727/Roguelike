@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  AssetManager.cpp
   Audio.cpp
 C:\Users\Danielle Hu\Documents\Github\Projects\Roguelike\Roguelike\Audio.cpp(20,33): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
@@ -31,3 +32,15 @@ C:\Users\Danielle Hu\Documents\Github\Projects\Roguelike\Roguelike\Timer.cpp(29,
 C:\Users\Danielle Hu\Documents\Github\Projects\Roguelike\Roguelike\InputHandler.cpp(120): warning C4172: returning address of local variable or temporary
 C:\Users\Danielle Hu\Documents\Github\Projects\Roguelike\Roguelike\InputHandler.cpp(125): warning C4172: returning address of local variable or temporary
   Roguelike.vcxproj -> C:\Users\Danielle Hu\Documents\Github\Projects\Roguelike\Debug\Roguelike.exe
+=======
+﻿  Engine.cpp
+c:\users\2339695\source\repos\roguelike\roguelike\rng.h(26): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+  Map.cpp
+c:\users\2339695\source\repos\roguelike\roguelike\rng.h(26): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+c:\users\2339695\source\repos\roguelike\roguelike\map.cpp(10): warning C4244: '=': conversion from 'time_t' to 'int', possible loss of data
+c:\users\2339695\source\repos\roguelike\roguelike\map.cpp(31): warning C4244: '=': conversion from 'time_t' to 'int', possible loss of data
+  main.cpp
+c:\users\2339695\source\repos\roguelike\roguelike\rng.h(26): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+  Generating Code...
+  Roguelike.vcxproj -> C:\Users\2339695\source\repos\Roguelike\Debug\Roguelike.exe
+>>>>>>> 888e83e8679816e9a81d20444d9058ea43c13af2

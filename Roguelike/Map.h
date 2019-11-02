@@ -23,6 +23,8 @@ private:
 public:
 	int GetSeed() { return mSeed; }
 
+	bool Walkable(int x, int y);
+
 	void Update();
 	void Draw();
 };
