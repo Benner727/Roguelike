@@ -18,6 +18,11 @@ protected:
 
 	std::vector<int> mTiles;
 
+	inline bool InsideMap(int x, int y)
+	{
+		return (x >= 0 && x < mWidth && y >= 0 && y < mHeight);
+	}
+
 	void SeedRNG(int seed)
 	{
 		mRNG = RNG(seed);

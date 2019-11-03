@@ -1,5 +1,24 @@
+<<<<<<< HEAD
 ﻿  Engine.cpp
   EventHandler.cpp
   Generating Code...
 C:\Users\Danielle Hu\Documents\Github\Projects\Roguelike\Roguelike\RNG.h(26,53): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
   Roguelike.vcxproj -> C:\Users\Danielle Hu\Documents\Github\Projects\Roguelike\Debug\Roguelike.exe
+=======
+﻿  DungeonGenerator.cpp
+c:\users\2339695\source\repos\roguelike\roguelike\rng.h(26): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+c:\users\2339695\source\repos\roguelike\roguelike\dungeongenerator.cpp(160): warning C4018: '<': signed/unsigned mismatch
+c:\users\2339695\source\repos\roguelike\roguelike\dungeongenerator.cpp(162): warning C4018: '<': signed/unsigned mismatch
+c:\users\2339695\source\repos\roguelike\roguelike\dungeongenerator.cpp(166): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\2339695\source\repos\roguelike\roguelike\dungeongenerator.cpp(166): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  Engine.cpp
+c:\users\2339695\source\repos\roguelike\roguelike\rng.h(26): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+  Map.cpp
+c:\users\2339695\source\repos\roguelike\roguelike\rng.h(26): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+c:\users\2339695\source\repos\roguelike\roguelike\map.cpp(11): warning C4244: '=': conversion from 'time_t' to 'int', possible loss of data
+c:\users\2339695\source\repos\roguelike\roguelike\map.cpp(32): warning C4244: '=': conversion from 'time_t' to 'int', possible loss of data
+  main.cpp
+c:\users\2339695\source\repos\roguelike\roguelike\rng.h(26): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+  Generating Code...
+  Roguelike.vcxproj -> C:\Users\2339695\source\repos\Roguelike\Debug\Roguelike.exe
+>>>>>>> Added camera, FOV, and more updates to map generation.

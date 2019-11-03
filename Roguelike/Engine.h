@@ -7,7 +7,7 @@
 
 #include "EventHandler.h"
 #include "Map.h"
-#include "Player.h"
+#include "FOV.h"
 
 class Engine
 {

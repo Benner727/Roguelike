@@ -2,8 +2,8 @@
 
 #include <iostream>
 
-CaveGenerator::CaveGenerator(int width, int height, int fillPercent)
-	: MapGenerator(width, height), mFillPercent(fillPercent)
+CaveGenerator::CaveGenerator(int width, int height, int fillPercent, int smoothingIterations)
+	: MapGenerator(width, height), mFillPercent(fillPercent), mSmoothingIterations(smoothingIterations)
 {
 }
 
@@ -20,7 +20,7 @@ std::vector<int> CaveGenerator::GenerateMap(int seed)
 	mTiles.clear();
 	FillMap();
 
-	for (int i = 0; i < SMOOTHING_ITERATIONS; i++)
+	for (int i = 0; i < mSmoothingIterations; i++)
 		SmoothMap();
 
 	BuildMap();
@@ -326,9 +326,4 @@ void CaveGenerator::CarveCircle(Point c, int r)
 			}
 		}
 	}
-}
-
-bool CaveGenerator::InsideMap(int x, int y)
-{
-	return (x >= 0 && x < mWidth && y >= 0 && y < mHeight);
 }
