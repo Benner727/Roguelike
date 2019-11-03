@@ -26,7 +26,6 @@ private:
 
 	Player* mPlayer;
 	Map* mMap;
-	const Uint8* state;
 
 	Engine();
 	~Engine();
