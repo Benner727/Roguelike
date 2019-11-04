@@ -21,6 +21,8 @@ private:
 	std::unique_ptr<SDL_Window, decltype(&SDL_DestroyWindow)> mWindow;
 	std::unique_ptr<SDL_Renderer, decltype(&SDL_DestroyRenderer)> mRenderer;
 
+	SDL_Rect mCamera;
+
 	Graphics();
 	~Graphics();
 
@@ -35,7 +37,9 @@ public:
 
 	void ClearBackBuffer();
 
-	void DrawTexture(std::weak_ptr<SDL_Texture> tex, const SDL_Rect* clip = nullptr, const SDL_Rect* rend = nullptr, float angle = 0.0f, SDL_RendererFlip flip = SDL_FLIP_NONE);
+	void DrawTexture(std::weak_ptr<SDL_Texture> tex, const SDL_Rect* clip = nullptr, SDL_Rect* rend = nullptr, float angle = 0.0f, SDL_RendererFlip flip = SDL_FLIP_NONE);
+
+	void SetCameraPos(int x, int y);
 
 	void Render();
 };

@@ -21,6 +21,9 @@ private:
 	void Move(int x, int y);
 
 public:
+	const int GetXPos() { return xPosition; }
+	const int GetYPos() { return yPosition; }
+
 	void MoveLeft();
 	void MoveRight();
 	void MoveUp();

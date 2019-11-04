@@ -52,7 +52,7 @@ bool Graphics::Init()
 		return false;
 	}
 
-	SDL_SetRenderDrawColor(mRenderer.get(), 0x00, 0x00, 0x00, 0xFF);
+	SDL_SetRenderDrawColor(mRenderer.get(), 0x47, 0x2D, 0x3C, 0xFF);
 
 	int flags = IMG_INIT_PNG;
 	if (!(IMG_Init(flags) & flags))
@@ -67,7 +67,8 @@ bool Graphics::Init()
 		return false;
 	}
 
-	SDL_RenderSetLogicalSize(mRenderer.get(), SCREEN_WIDTH * 2, SCREEN_HEIGHT * 2);
+	//SDL_RenderSetLogicalSize(mRenderer.get(), SCREEN_WIDTH * 2, SCREEN_HEIGHT * 2);
+	mCamera = SDL_Rect{ 0, 0, (int)(SCREEN_WIDTH * 0.75f), (int)(SCREEN_HEIGHT * 0.75f)};
 
 	return true;
 }
@@ -116,9 +117,27 @@ void Graphics::ClearBackBuffer()
 	SDL_RenderClear(mRenderer.get());
 }
 
-void Graphics::DrawTexture(std::weak_ptr<SDL_Texture> tex, const SDL_Rect* clip, const SDL_Rect* rend, float angle, SDL_RendererFlip flip)
+void Graphics::DrawTexture(std::weak_ptr<SDL_Texture> tex, const SDL_Rect* clip, SDL_Rect* rend, float angle, SDL_RendererFlip flip)
 {
+	if (rend->x < mCamera.x) //Left of camera
+		return;
+	else if (rend->x > mCamera.x + mCamera.w) //Right of camera
+		return;
+	else if (rend->y < mCamera.y) //Above camera
+		return;
+	else if (rend->y > mCamera.y + mCamera.h) //Below camera
+		return;
+
+	rend->x -= mCamera.x;
+	rend->y -= mCamera.y;
+
 	SDL_RenderCopyEx(mRenderer.get(), tex.lock().get(), clip, rend, angle, nullptr, flip);
+}
+
+void Graphics::SetCameraPos(int x, int y)
+{
+	mCamera.x = x - mCamera.w * 0.5f;
+	mCamera.y = y - mCamera.h * 0.5f;
 }
 
 void Graphics::Render()
