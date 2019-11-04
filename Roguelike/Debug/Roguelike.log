@@ -1,2 +1,5 @@
-﻿  Player.cpp
-  Roguelike.vcxproj -> C:\Users\2339695\source\repos\Roguelike\Debug\Roguelike.exe
+﻿  Engine.cpp
+  EventHandler.cpp
+  Generating Code...
+C:\Users\Danielle Hu\Documents\Github\Projects\Roguelike\Roguelike\RNG.h(26,53): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+  Roguelike.vcxproj -> C:\Users\Danielle Hu\Documents\Github\Projects\Roguelike\Debug\Roguelike.exe

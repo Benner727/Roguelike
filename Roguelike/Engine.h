@@ -5,6 +5,7 @@
 #include "InputHandler.h"
 #include "Timer.h"
 
+#include "EventHandler.h"
 #include "Map.h"
 #include "Player.h"
 
@@ -21,6 +22,7 @@ private:
 	Timer& mTimer;
 
 	SDL_Event mEvent;
+	EventHandler* mEventHandler;
 
 	Player* mPlayer;
 	Map* mMap;
