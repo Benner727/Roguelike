@@ -38,6 +38,8 @@ private:
 
 	MapGenerator* mMapGenerator;
 
+	std::vector<int> GenerateDijkstraMap(int sourceX, int sourceY);
+
 public:
 	int GetSeed() { return mSeed; }
 

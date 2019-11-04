@@ -29,6 +29,9 @@ protected:
 	std::vector<Point> GetRegionTiles(int startX, int startY);
 	std::vector<std::vector<Point>> GetRegions(int tileType);
 
+	void ConnectClosestRooms(std::vector<Room> allRooms, bool forceAccessibilityFromMainRoom = false);
+	virtual void CreatePassage(Room& roomA, Room& roomB, Point tileA, Point tileB) = 0;
+
 public:
 	virtual std::vector<int> GenerateMap(int seed) = 0;
 };

@@ -8,6 +8,9 @@
 class DungeonGenerator : public MapGenerator
 {
 public:
+	//Smooth map true for snake like rooms connected by bridges
+	//Smooth map false for rectangular rooms connected by hallways
+
 	DungeonGenerator(int width, int height, bool smoothMap = false);
 	~DungeonGenerator();
 
@@ -20,7 +23,6 @@ private:
 	void CreateRoom();
 
 	void BuildMap();
-	void ConnectClosestRooms(std::vector<Room> allRooms, bool forceAccessibilityFromMainRoom = false);
 	void CreatePassage(Room& roomA, Room& roomB, Point tileA, Point tileB);
 
 public:

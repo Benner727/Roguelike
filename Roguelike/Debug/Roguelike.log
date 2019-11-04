@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿  Engine.cpp
   EventHandler.cpp
   Generating Code...
@@ -40,17 +41,11 @@ c:\users\2339695\source\repos\roguelike\roguelike\rng.h(26): warning C4244: 'ret
 c:\users\2339695\source\repos\roguelike\roguelike\fov.h(33): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 c:\users\2339695\source\repos\roguelike\roguelike\fov.h(34): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   Map.cpp
+=======
+﻿  Map.cpp
+>>>>>>> Added
 c:\users\2339695\source\repos\roguelike\roguelike\rng.h(26): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
 c:\users\2339695\source\repos\roguelike\roguelike\map.cpp(11): warning C4244: '=': conversion from 'time_t' to 'int', possible loss of data
-c:\users\2339695\source\repos\roguelike\roguelike\map.cpp(38): warning C4244: '=': conversion from 'time_t' to 'int', possible loss of data
-  MapGenerator.cpp
-c:\users\2339695\source\repos\roguelike\roguelike\rng.h(26): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-  Player.cpp
-  Sprite.cpp
-  Text.cpp
-c:\users\2339695\source\repos\roguelike\roguelike\text.cpp(26): warning C4018: '<': signed/unsigned mismatch
-  Generating Code...
-c:\users\2339695\source\repos\roguelike\roguelike\inputhandler.cpp(120): warning C4172: returning address of local variable or temporary
-c:\users\2339695\source\repos\roguelike\roguelike\inputhandler.cpp(125): warning C4172: returning address of local variable or temporary
+c:\users\2339695\source\repos\roguelike\roguelike\map.cpp(80): warning C4244: '=': conversion from 'time_t' to 'int', possible loss of data
   Roguelike.vcxproj -> C:\Users\2339695\source\repos\Roguelike\Debug\Roguelike.exe
 >>>>>>> Added camera, FOV, and more updates to map generation.

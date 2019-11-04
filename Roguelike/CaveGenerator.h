@@ -33,7 +33,6 @@ private:
 	std::vector<Room> TrimMap();
 
 	void BuildMap();
-	void ConnectClosestRooms(std::vector<Room> allRooms, bool forceAccessibilityFromMainRoom = false);
 	void CreatePassage(Room& roomA, Room& roomB, Point tileA, Point tileB);
 	void CarveCircle(Point c, int r);
 

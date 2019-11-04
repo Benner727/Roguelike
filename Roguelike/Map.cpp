@@ -25,6 +25,48 @@ Map::~Map()
 	delete mMapGenerator;
 }
 
+std::vector<int> Map::GenerateDijkstraMap(int sourceX, int sourceY)
+{
+	std::vector<Point> tiles;
+
+	std::vector<int> tileFlags;
+	for (int i = 0; i < mWidth * mHeight; i++)
+		tileFlags.push_back(-1);
+
+	std::queue<Point> queue;
+	int distance = 0;
+
+	queue.push(Point(sourceX, sourceY));
+	tileFlags[sourceX + sourceY * mWidth] = distance;
+
+	while (queue.size() > 0)
+	{
+		Point tile = queue.front();
+		queue.pop();
+
+		tiles.push_back(tile);
+
+		distance++;
+
+		for (int x = tile.tileX - 1; x <= tile.tileX + 1; x++)
+		{
+			for (int y = tile.tileY - 1; y <= tile.tileY + 1; y++)
+			{
+				if (x >= 0 && x < mWidth && y >= 0 && y < mHeight)
+				{
+					if (tileFlags[x + y * mWidth] == -1 && mTiles[x + y * mWidth].walkable)
+					{
+						queue.push(Point(x, y));
+						tileFlags[x + y * mWidth] = distance;
+					}
+				}
+			}
+		}
+	}
+
+	return tileFlags;
+}
+
 bool Map::Walkable(int x, int y)
 {
 	//Coordinates are inside map and tile is floor
@@ -44,6 +86,8 @@ void Map::Update()
 				mTiles.push_back(Tile(tileId, true, false));
 		}
 		std::cout << mSeed << std::endl;
+
+		std::vector<int> tileFlags = GenerateDijkstraMap(12, 12);
 	}
 }
 
