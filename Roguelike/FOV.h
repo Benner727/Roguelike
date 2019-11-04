@@ -15,8 +15,7 @@ namespace FOV
 	};
 
 	inline static void CastLight(Map& map, int x, int y, int radius, int row,
-		float start_slope, float end_slope, int xx, int xy, int yx,
-		int yy)
+		float start_slope, float end_slope, int xx, int xy, int yx, int yy)
 	{
 		if (start_slope < end_slope)
 		{
@@ -24,13 +23,15 @@ namespace FOV
 		}
 
 		float next_start_slope = start_slope;
+
 		for (int i = row; i <= radius; i++)
 		{
 			bool blocked = false;
+
 			for (int dx = -i, dy = -i; dx <= 0; dx++)
 			{
 				float l_slope = (dx - 0.5) / (dy + 0.5);
-				float r_slope = (dx + 0.5) / (dy - 0.5);
+				float r_slope = (dx + 0.5) / (dy - 0.5);				
 				if (start_slope < r_slope)
 				{
 					continue;
@@ -41,12 +42,13 @@ namespace FOV
 				}
 
 				int sax = dx * xx + dy * xy;
-				int say = dx * yx + dy * yy;
+				int say = dx * yx + dy * yy;				
 				if ((sax < 0 && (int)std::abs(sax) > x) ||
 					(say < 0 && (int)std::abs(say) > y))
 				{
 					continue;
 				}
+				
 				int ax = x + sax;
 				int ay = y + say;
 				if (ax >= map.Width() || ay >= map.Height())
@@ -81,6 +83,7 @@ namespace FOV
 						xy, yx, yy);
 				}
 			}
+
 			if (blocked)
 			{
 				break;
@@ -102,8 +105,8 @@ namespace FOV
 
 		for (int i = 0; i < 8; i++)
 		{
-			CastLight(map, sourceX, sourceY, radius, 1, 1.0, 0.0, multipliers[0][i],
-				multipliers[1][i], multipliers[2][i], multipliers[3][i]);
+			CastLight(map, sourceX, sourceY, radius, 1, 1.0f, 0.0f,
+				multipliers[0][i], multipliers[1][i], multipliers[2][i], multipliers[3][i]);
 		}
 	}
 }

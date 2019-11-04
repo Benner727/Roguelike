@@ -4,11 +4,12 @@
 #include "Room.h"
 #include "RNG.h"
 
+#include <queue>
+
 class MapGenerator
 {
 public:
-	MapGenerator(int width, int height) 
-		: mRNG(0), mWidth(width), mHeight(height) {}
+	MapGenerator(int width, int height);
 	virtual ~MapGenerator() {}
 
 protected:
@@ -18,15 +19,15 @@ protected:
 
 	std::vector<int> mTiles;
 
-	inline bool InsideMap(int x, int y)
-	{
-		return (x >= 0 && x < mWidth && y >= 0 && y < mHeight);
-	}
+	void SeedRNG(int seed);
 
-	void SeedRNG(int seed)
-	{
-		mRNG = RNG(seed);
-	}
+	bool InsideMap(int x, int y);
+
+	void SmoothMap();
+	int SurroundingWallCount(int x, int y);
+
+	std::vector<Point> GetRegionTiles(int startX, int startY);
+	std::vector<std::vector<Point>> GetRegions(int tileType);
 
 public:
 	virtual std::vector<int> GenerateMap(int seed) = 0;

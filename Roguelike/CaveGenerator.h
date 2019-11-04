@@ -30,12 +30,7 @@ private:
 	int mSmoothingIterations;
 
 	void FillMap();
-	void SmoothMap();
-	int SurroundingWallCount(int x, int y);
-
 	std::vector<Room> TrimMap();
-	std::vector<Point> GetRegionTiles(int startX, int startY);
-	std::vector<std::vector<Point>> GetRegions(int tileType);
 
 	void BuildMap();
 	void ConnectClosestRooms(std::vector<Room> allRooms, bool forceAccessibilityFromMainRoom = false);

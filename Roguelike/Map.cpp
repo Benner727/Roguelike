@@ -5,8 +5,8 @@
 Map::Map(int width, int height)
 	: mWidth(width), mHeight(height)
 {
-	mMapGenerator = new CaveGenerator(mWidth, mHeight);
-	//mMapGenerator = new DungeonGenerator(mWidth, mHeight);
+	//mMapGenerator = new CaveGenerator(mWidth, mHeight);
+	mMapGenerator = new DungeonGenerator(mWidth, mHeight);
 
 	mSeed = time(NULL);
 	for (auto& tileId : mMapGenerator->GenerateMap(mSeed))

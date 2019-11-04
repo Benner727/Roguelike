@@ -8,19 +8,16 @@
 class DungeonGenerator : public MapGenerator
 {
 public:
-	DungeonGenerator(int width, int height);
+	DungeonGenerator(int width, int height, bool smoothMap = false);
 	~DungeonGenerator();
 
 private:
 	static const int MAX_ROOM_LENGTH = 12;
 	static const int MIN_ROOM_LENGTH = 5;
 
+	bool mSmoothMap;
+
 	void CreateRoom();
-
-	std::vector<Point> GetRegionTiles(int startX, int startY);
-	std::vector<std::vector<Point>> GetRegions(int tileType);
-
-	int SurroundingWallCount(int x, int y);
 
 	void BuildMap();
 	void ConnectClosestRooms(std::vector<Room> allRooms, bool forceAccessibilityFromMainRoom = false);

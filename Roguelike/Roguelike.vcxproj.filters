@@ -80,6 +80,9 @@
       <Filter>Source Files\Game\Map</Filter>
 >>>>>>> Added camera, FOV, and more updates to map generation.
     </ClCompile>
+    <ClCompile Include="MapGenerator.cpp">
+      <Filter>Source Files\Game\Map</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetManager.h">

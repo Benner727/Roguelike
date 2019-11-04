@@ -45,7 +45,7 @@ public:
 	int Height() { return mHeight; }
 
 	bool Walkable(int x, int y);
-	bool Opaque(int x, int y) { return !Walkable(x, y); }
+	bool Opaque(int x, int y) { return mTiles[x + y * mWidth].opaque; }
 	
 	void SetVisible(int x, int y, bool visible) { mTiles[x + y * mWidth].visible = visible; }
 
