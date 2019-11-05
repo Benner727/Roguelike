@@ -2,20 +2,21 @@
 #define EVENTHANDLER_H
 
 #include "InputHandler.h"
-
 #include "Player.h"
+#include "Map.h"
 
 class EventHandler
 {
 public:
-	EventHandler(InputHandler& inputHandler);
+	EventHandler();
 	~EventHandler();
 
 private:
-	InputHandler& mInputHandler;
+	InputHandler& mInputHandler = InputHandler::Instance();
 
 public:
-	void HandlePlayer(Player* mPlayer);
+	static EventHandler& Instance();
+	void MovePlayer(Player& mPlayer, Map& mMap);
 };
 
 #endif

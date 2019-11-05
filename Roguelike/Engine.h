@@ -18,11 +18,11 @@ private:
 	AssetManager& mAssetManager;
 	Audio& mAudio;
 	InputHandler& mInputHandler;
+	EventHandler& mEventHandler;
 
 	Timer& mTimer;
 
 	SDL_Event mEvent;
-	EventHandler* mEventHandler;
 
 	Player* mPlayer;
 	Map* mMap;

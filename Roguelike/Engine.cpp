@@ -8,11 +8,11 @@ Engine& Engine::Instance()
 
 Engine::Engine()
 	: mGraphics(Graphics::Instance()), mAssetManager(AssetManager::Instance()),
-	mAudio(Audio::Instance()), mInputHandler(InputHandler::Instance()), mTimer(Timer::Instance())
+	mAudio(Audio::Instance()), mInputHandler(InputHandler::Instance()), mTimer(Timer::Instance()),
+	mEventHandler(EventHandler::Instance())
 {
 	mQuit = !mGraphics.Initialized();
 
-	mEventHandler = new EventHandler(mInputHandler);
 	mMap = new Map(48 * 2, 32 * 2);
 	mPlayer = new Player();
 }
@@ -35,7 +35,7 @@ void Engine::Update()
 	//Update game here
 	mMap->Update();
 
-	mEventHandler->HandlePlayer(mPlayer);
+	mEventHandler.MovePlayer(*mPlayer, *mMap);
 
 	FOV::CalculateFOV(*mMap, mPlayer->GetXPos(), mPlayer->GetYPos(), 12);
 	mGraphics.SetCameraPos(mPlayer->GetXPos() * Sprite::TILE_SIZE, mPlayer->GetYPos() * Sprite::TILE_SIZE);

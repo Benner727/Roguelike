@@ -1,5 +1,6 @@
 #include "Player.h"
 
+
 Player::Player()
 	: xPosition(0), yPosition(0),
 	mSprite(Sprite(PLAYER_POS_X, PLAYER_POS_Y, { 255, 255, 255 }))
@@ -21,22 +22,21 @@ void Player::Draw()
 	mSprite.Draw(xPosition, yPosition);
 }
 
-void Player::MoveLeft()
+void Player::Move(const SDL_Scancode& scanCode)
 {
-	Move(xPosition - 1, yPosition);
-}
-
-void Player::MoveRight()
-{
-	Move(xPosition + 1, yPosition);
-}
-
-void Player::MoveUp()
-{
-	Move(xPosition, yPosition - 1);
-}
-
-void Player::MoveDown()
-{
-	Move(xPosition, yPosition + 1);
+	switch (scanCode)
+	{
+		case SDL_SCANCODE_A:
+			Move(xPosition - 1, yPosition);
+			break;
+		case SDL_SCANCODE_D:
+			Move(xPosition + 1, yPosition);
+			break;
+		case SDL_SCANCODE_S:
+			Move(xPosition, yPosition + 1);
+			break;
+		case SDL_SCANCODE_W:
+			Move(xPosition, yPosition - 1);
+			break;
+	}
 }

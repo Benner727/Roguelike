@@ -24,11 +24,7 @@ public:
 	const int GetXPos() { return xPosition; }
 	const int GetYPos() { return yPosition; }
 
-	void MoveLeft();
-	void MoveRight();
-	void MoveUp();
-	void MoveDown();
-
+	void Move(const SDL_Scancode& scanCode);
 	void Draw();
 };
 
