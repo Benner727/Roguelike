@@ -18,13 +18,13 @@ private:
 
 	Sprite mSprite;
 
-	void Move(int x, int y);
+
 
 public:
 	const int GetXPos() { return xPosition; }
 	const int GetYPos() { return yPosition; }
 
-	void Move(const SDL_Scancode& scanCode);
+	void Move(int x, int y);
 	void Draw();
 };
 
