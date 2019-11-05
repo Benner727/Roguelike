@@ -117,21 +117,24 @@ void Graphics::ClearBackBuffer()
 	SDL_RenderClear(mRenderer.get());
 }
 
-void Graphics::DrawTexture(std::weak_ptr<SDL_Texture> tex, const SDL_Rect* clip, SDL_Rect* rend, float angle, SDL_RendererFlip flip)
+void Graphics::DrawTexture(std::weak_ptr<SDL_Texture> tex, const SDL_Rect* clip, SDL_Rect* rend, bool ignoreCamera)
 {
-	if (rend->x < mCamera.x) //Left of camera
-		return;
-	else if (rend->x > mCamera.x + mCamera.w) //Right of camera
-		return;
-	else if (rend->y < mCamera.y) //Above camera
-		return;
-	else if (rend->y > mCamera.y + mCamera.h) //Below camera
-		return;
+	if (!ignoreCamera)
+	{
+		if (rend->x < mCamera.x) //Left of camera
+			return;
+		else if (rend->x > mCamera.x + mCamera.w) //Right of camera
+			return;
+		else if (rend->y < mCamera.y) //Above camera
+			return;
+		else if (rend->y > mCamera.y + mCamera.h) //Below camera
+			return;
 
-	rend->x -= mCamera.x;
-	rend->y -= mCamera.y;
+		rend->x -= mCamera.x;
+		rend->y -= mCamera.y;
+	}
 
-	SDL_RenderCopyEx(mRenderer.get(), tex.lock().get(), clip, rend, angle, nullptr, flip);
+	SDL_RenderCopyEx(mRenderer.get(), tex.lock().get(), clip, rend, 0.0f, nullptr, SDL_FLIP_NONE);
 }
 
 void Graphics::SetCameraPos(int x, int y)

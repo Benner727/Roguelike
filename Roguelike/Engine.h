@@ -8,6 +8,7 @@
 #include "EventHandler.h"
 #include "Map.h"
 #include "FOV.h"
+#include "MessageLog.h"
 
 class Engine
 {
@@ -26,6 +27,7 @@ private:
 
 	Player* mPlayer;
 	Map* mMap;
+	MessageLog mMessageLog;
 
 	Engine();
 	~Engine();
