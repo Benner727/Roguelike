@@ -9,7 +9,7 @@ Engine& Engine::Instance()
 Engine::Engine()
 	: mGraphics(Graphics::Instance()), mAssetManager(AssetManager::Instance()),
 	mAudio(Audio::Instance()), mInputHandler(InputHandler::Instance()), mTimer(Timer::Instance()),
-	mMessageLog(Point(1, 25), 32, 7)
+	mMessageLog(Point(1, 25), 80, 7)
 {
 	mQuit = !mGraphics.Initialized();
 

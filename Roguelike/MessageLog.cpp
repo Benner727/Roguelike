@@ -5,14 +5,7 @@
 MessageLog::MessageLog(Point pos, int width, int height)
 	: mPos(pos), mWidth(width), mHeight(height)
 {
-	AddMessage(Message("This is the first message."));
-	AddMessage(Message("This is the second message.", { 255, 55, 55 }));
-	AddMessage(Message("This is another message.", { 55, 255, 55 }));
-	AddMessage(Message("This is the last message.", { 0, 0, 255 }));
-	AddMessage(Message("This is the first message."));
-	AddMessage(Message("This is the second message."));
-	AddMessage(Message("This is another message."));
-	AddMessage(Message("This is the last message.", { 125, 125, 125 }));
+	AddMessage("C++ is better than Python.", { 255, 255, 0 });
 }
 
 
@@ -20,9 +13,16 @@ MessageLog::~MessageLog()
 {
 }
 
-void MessageLog::AddMessage(Message message)
+void MessageLog::AddMessage(std::string message, SDL_Color color)
 {
-	mMessages.push_front(Text(message.text, 15, message.color));
+	while (message.size() > mWidth)
+	{
+		std::string msg = message.substr(0, mWidth);
+		message = message.substr(mWidth, message.size());
+		mMessages.push_front(Text(msg, 15, color));
+	}
+
+	mMessages.push_front(Text(message, 15, color));
 
 	while (mMessages.size() > mHeight)
 		mMessages.pop_back();

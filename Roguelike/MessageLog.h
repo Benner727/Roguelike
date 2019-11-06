@@ -5,14 +5,6 @@
 #include "MathHelper.h"
 #include <list>
 
-struct Message {
-	std::string text;
-	SDL_Color color;
-
-	Message(std::string _text, SDL_Color _color = { 255, 255, 255 })
-		: text(_text), color(_color) {}
-};
-
 class MessageLog
 {
 public:
@@ -26,7 +18,7 @@ private:
 	std::list<Text> mMessages;
 
 public:
-	void AddMessage(Message message);
+	void AddMessage(std::string message, SDL_Color color = { 255, 255, 255 });
 
 	void Draw();
 };
