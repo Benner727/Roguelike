@@ -14,7 +14,9 @@ Engine::Engine()
 	mQuit = !mGraphics.Initialized();
 
 	mMap = new Map(48 * 2, 32 * 2);
-	mPlayer = new Player();
+
+	Point entryPoint = mMap->GetEntryPoint();
+	mPlayer = new Player(entryPoint.tileX, entryPoint.tileY);
 }
 
 Engine::~Engine()
@@ -28,6 +30,7 @@ void Engine::EarlyUpdate()
 	mTimer.Update();
 
 	mInputHandler.Update();
+
 }
 
 void Engine::Update()

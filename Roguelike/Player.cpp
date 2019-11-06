@@ -1,8 +1,8 @@
 #include "Player.h"
 
 
-Player::Player()
-	: xPosition(10), yPosition(10),
+Player::Player(int startX, int startY)
+	: xPosition(startX), yPosition(startY),
 	mSprite(Sprite(PLAYER_POS_X, PLAYER_POS_Y, { 255, 255, 255 }))
 {
 }

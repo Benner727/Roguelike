@@ -17,12 +17,66 @@ Map::Map(int width, int height)
 			mTiles.push_back(Tile(tileId, true, false));
 	}
 	std::cout << mSeed << std::endl;
+
+	InitializeEntryExitPoints();
 }
 
 
 Map::~Map()
 {
 	delete mMapGenerator;
+}
+
+int Map::ClosestDistanceFromWall(int x, int y) {
+	int smallestDistance = 0;
+	std::tuple<int, int> directions [4] = { 
+		std::make_tuple(-1, 0),
+		std::make_tuple(1, 0),
+		std::make_tuple(0, -1),
+		std::make_tuple(0, 1)
+	};
+
+	for (std::tuple<int, int> direction : directions)
+	{
+		int dx = std::get<0>(direction);
+		int dy = std::get<1>(direction);
+		int distance = 0;
+
+		while (Walkable(x + distance * dx, y + distance * dy))
+		{
+			distance += 1;
+		}
+
+		if (smallestDistance > 0)
+			smallestDistance = std::min(smallestDistance, distance);
+		else
+			smallestDistance = distance;
+	}
+
+	return smallestDistance;
+}
+
+void Map::InitializeEntryExitPoints()
+{
+	int halfWidth = mWidth / 2;
+	int halfHeight = mHeight / 2;
+
+	bool isWalkable = false;
+	while (!isWalkable)
+	{
+		int startX = halfWidth * (rand() % 100) / 100;
+		int startY = halfHeight * (rand() % 100) / 100;
+		int endX = halfWidth + (halfWidth * (rand() % 100) / 100);
+		int endY = halfHeight + (halfHeight * (rand() % 100) / 100);
+
+		if (Walkable(startX, startY) && ClosestDistanceFromWall(startX, startY) >= MIN_SPAWN_DISTANCE_FROM_WALL &&
+			Walkable(endX, endY) && ClosestDistanceFromWall(endX, endY) >= MIN_SPAWN_DISTANCE_FROM_WALL)
+		{
+			mEntryPoint = Point(startX, startY);
+			mExitPoint = Point(endX, endY);
+			isWalkable = true;
+		}
+	}
 }
 
 std::vector<int> Map::GenerateDijkstraMap(int sourceX, int sourceY)

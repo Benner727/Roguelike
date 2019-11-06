@@ -1,7 +1,20 @@
 ﻿C:\Users\Danielle Hu\Documents\Github\Projects\Roguelike\Roguelike\Roguelike.vcxproj(68,5): warning MSB4011: "C:\Users\Danielle Hu\Documents\Visual Studio 2019\Source\RogueLike.props" cannot be imported again. It was already imported at "C:\Users\Danielle Hu\Documents\Github\Projects\Roguelike\Roguelike\Roguelike.vcxproj (66,5)". This is most likely a build authoring error. This subsequent import will be ignored. 
-  Player.cpp
+  Engine.cpp
+C:\Users\Danielle Hu\Documents\Github\Projects\Roguelike\Roguelike\RNG.h(26,64): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+C:\Users\Danielle Hu\Documents\Github\Projects\Roguelike\Roguelike\FOV.h(33,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  EventHandler.cpp
+C:\Users\Danielle Hu\Documents\Github\Projects\Roguelike\Roguelike\FOV.h(34,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Map.cpp
+C:\Users\Danielle Hu\Documents\Github\Projects\Roguelike\Roguelike\RNG.h(26,64): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+C:\Users\Danielle Hu\Documents\Github\Projects\Roguelike\Roguelike\RNG.h(26,64): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+C:\Users\Danielle Hu\Documents\Github\Projects\Roguelike\Roguelike\Map.cpp(11,14): warning C4244: '=': conversion from 'time_t' to 'int', possible loss of data
+  main.cpp
+C:\Users\Danielle Hu\Documents\Github\Projects\Roguelike\Roguelike\Map.cpp(134,15): warning C4244: '=': conversion from 'time_t' to 'int', possible loss of data
+C:\Users\Danielle Hu\Documents\Github\Projects\Roguelike\Roguelike\RNG.h(26,64): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+C:\Users\Danielle Hu\Documents\Github\Projects\Roguelike\Roguelike\FOV.h(33,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Danielle Hu\Documents\Github\Projects\Roguelike\Roguelike\FOV.h(34,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   Generating code
-  3 of 1002 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
+  2 of 1015 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     1 functions had inline decision re-evaluated but remain unchanged
   Finished generating code

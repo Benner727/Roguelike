@@ -5,6 +5,7 @@
 #include "CaveGenerator.h"
 #include "DungeonGenerator.h"
 
+
 struct Tile {
 	int tileId;
 	bool opaque;
@@ -29,15 +30,21 @@ public:
 	~Map();
 
 private:
+	static const int MIN_SPAWN_DISTANCE_FROM_WALL = 4;
+	
 	int mWidth;
 	int mHeight;
 
 	int mSeed;
 
+	Point mExitPoint;
+	Point mEntryPoint;
 	std::vector<Tile> mTiles;
 
 	MapGenerator* mMapGenerator;
 
+	void InitializeEntryExitPoints();
+	int ClosestDistanceFromWall(int x, int y);
 	std::vector<int> GenerateDijkstraMap(int sourceX, int sourceY);
 
 public:
@@ -45,6 +52,8 @@ public:
 
 	int Width() { return mWidth; }
 	int Height() { return mHeight; }
+	Point GetEntryPoint() { return mEntryPoint; }
+	Point GetExitPoint() { return mExitPoint; }
 
 	bool Walkable(int x, int y);
 	bool Opaque(int x, int y) { return mTiles[x + y * mWidth].opaque; }

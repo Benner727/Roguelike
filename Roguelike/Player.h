@@ -6,7 +6,7 @@
 class Player
 {
 public:
-	Player();
+	Player(int startX, int startY);
 	~Player();
 
 private:
