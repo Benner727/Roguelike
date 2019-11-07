@@ -27,6 +27,8 @@ private:
 	SDL_Color mColor;
 
 public:
+	void Alpha(int alpha);
+
 	void Draw(int x, int y, bool ignoreCamera = false);
 };
 
