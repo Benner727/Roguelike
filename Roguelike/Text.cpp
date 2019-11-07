@@ -19,7 +19,7 @@ Text::~Text()
 {
 }
 
-void Text::Draw(int x, int y)
+void Text::Draw(int x, int y, bool ignoreCamera)
 {
 	int offset = 0;
 
@@ -32,7 +32,7 @@ void Text::Draw(int x, int y)
 
 		SDL_SetTextureColorMod(mGlyphs[i].mTexture.get(), mColor.r, mColor.g, mColor.b);
 
-		mGraphics.DrawTexture(mGlyphs[i].mTexture, nullptr, &mGlyphs[i].mRenderRect);
+		mGraphics.DrawTexture(mGlyphs[i].mTexture, nullptr, &mGlyphs[i].mRenderRect, ignoreCamera);
 
 		SDL_SetTextureColorMod(mGlyphs[i].mTexture.get(), 255, 255, 255);
 	}

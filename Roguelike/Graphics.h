@@ -37,7 +37,7 @@ public:
 
 	void ClearBackBuffer();
 
-	void DrawTexture(std::weak_ptr<SDL_Texture> tex, const SDL_Rect* clip = nullptr, SDL_Rect* rend = nullptr, float angle = 0.0f, SDL_RendererFlip flip = SDL_FLIP_NONE);
+	void DrawTexture(std::weak_ptr<SDL_Texture> tex, const SDL_Rect* clip = nullptr, SDL_Rect* rend = nullptr, bool ignoreCamera = false);
 
 	void SetCameraPos(int x, int y);
 
