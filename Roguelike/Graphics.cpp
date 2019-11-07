@@ -53,6 +53,7 @@ bool Graphics::Init()
 	}
 
 	SDL_SetRenderDrawColor(mRenderer.get(), 0x47, 0x2D, 0x3C, 0xFF);
+	SDL_SetRenderDrawBlendMode(mRenderer.get(), SDL_BLENDMODE_BLEND);
 
 	int flags = IMG_INIT_PNG;
 	if (!(IMG_Init(flags) & flags))

@@ -5,6 +5,8 @@ Sprite::Sprite(int x, int y, SDL_Color color)
 {
 	mTexture = AssetManager::Instance().GetTexture("tilesheet.png");
 
+	SDL_SetTextureBlendMode(mTexture.get(), SDL_BLENDMODE_BLEND);
+
 	mClipRect.x = x * TILE_SIZE + x;
 	mClipRect.y = y * TILE_SIZE + y;
 

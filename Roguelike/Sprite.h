@@ -21,6 +21,8 @@ private:
 public:
 	void Color(SDL_Color color) { mColor = color; }
 
+	void Alpha(int alpha) { SDL_SetTextureAlphaMod(mTexture.get(), alpha); }
+
 	void Draw(int x, int y, bool ignoreCamera = false);
 };
 
