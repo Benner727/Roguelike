@@ -37,7 +37,7 @@ Room::~Room()
 }
 
 
-bool Room::IsConnected(Room otherRoom)
+bool Room::IsConnected(const Room& otherRoom)
 {
 	return std::find(mConnectedRooms.begin(), mConnectedRooms.end(), otherRoom) != mConnectedRooms.end();
 }

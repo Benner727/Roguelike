@@ -1,43 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Header Files\Framework">
-      <UniqueIdentifier>{23788355-ec99-4391-8702-41c3198c332b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Framework">
-      <UniqueIdentifier>{ffe208af-994c-4a48-9396-83951017d971}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Game">
-      <UniqueIdentifier>{12116807-7082-40b8-a9eb-357d47ceed2c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Game\Map">
-      <UniqueIdentifier>{80abf362-9146-4a38-9b4f-0d1aeeb1ad93}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Game">
-      <UniqueIdentifier>{c39146af-8467-4e4b-b2b9-cd489fd56a64}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Game\Map">
-      <UniqueIdentifier>{e3df34f9-696c-4f0a-84e5-2e5a507c04e1}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="AssetManager.cpp">
       <Filter>Source Files\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="CaveGenerator.cpp">
+      <Filter>Source Files\Game\Map</Filter>
     </ClCompile>
     <ClCompile Include="Audio.cpp">
       <Filter>Source Files\Framework</Filter>
@@ -45,11 +13,32 @@
     <ClCompile Include="Engine.cpp">
       <Filter>Source Files\Framework</Filter>
     </ClCompile>
+    <ClCompile Include="DungeonGenerator.cpp">
+      <Filter>Source Files\Game\Map</Filter>
+    </ClCompile>
     <ClCompile Include="Graphics.cpp">
       <Filter>Source Files\Framework</Filter>
     </ClCompile>
     <ClCompile Include="InputHandler.cpp">
       <Filter>Source Files\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="EventHandler.cpp">
+      <Filter>Source Files\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>Source Files\Game\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="MapGenerator.cpp">
+      <Filter>Source Files\Game\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Room.cpp">
+      <Filter>Source Files\Game\Map</Filter>
     </ClCompile>
     <ClCompile Include="Sprite.cpp">
       <Filter>Source Files\Framework</Filter>
@@ -60,20 +49,8 @@
     <ClCompile Include="Timer.cpp">
       <Filter>Source Files\Framework</Filter>
     </ClCompile>
-    <ClCompile Include="Map.cpp">
+    <ClCompile Include="MessageLog.cpp">
       <Filter>Source Files\Game\Map</Filter>
-    </ClCompile>
-    <ClCompile Include="Room.cpp">
-      <Filter>Source Files\Game\Map</Filter>
-    </ClCompile>
-    <ClCompile Include="CaveGenerator.cpp">
-      <Filter>Source Files\Game\Map</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="EventHandler.cpp">
-      <Filter>Source Files\Framework</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -83,14 +60,44 @@
     <ClInclude Include="Audio.h">
       <Filter>Header Files\Framework</Filter>
     </ClInclude>
+    <ClInclude Include="CaveGenerator.h">
+      <Filter>Header Files\Game\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="EventHandler.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="FOV.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
     <ClInclude Include="Engine.h">
       <Filter>Header Files\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="DungeonGenerator.h">
+      <Filter>Header Files\Game\Map</Filter>
     </ClInclude>
     <ClInclude Include="Graphics.h">
       <Filter>Header Files\Framework</Filter>
     </ClInclude>
     <ClInclude Include="InputHandler.h">
       <Filter>Header Files\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>Header Files\Game\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="MapGenerator.h">
+      <Filter>Header Files\Game\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="MathHelper.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="RNG.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Room.h">
+      <Filter>Header Files\Game\Map</Filter>
     </ClInclude>
     <ClInclude Include="Sprite.h">
       <Filter>Header Files\Framework</Filter>
@@ -101,29 +108,37 @@
     <ClInclude Include="Timer.h">
       <Filter>Header Files\Framework</Filter>
     </ClInclude>
-    <ClInclude Include="Map.h">
-      <Filter>Header Files\Game\Map</Filter>
-    </ClInclude>
-    <ClInclude Include="MathHelper.h">
-      <Filter>Header Files\Game\Map</Filter>
-    </ClInclude>
-    <ClInclude Include="RNG.h">
-      <Filter>Header Files\Game\Map</Filter>
-    </ClInclude>
-    <ClInclude Include="Room.h">
-      <Filter>Header Files\Game\Map</Filter>
-    </ClInclude>
-    <ClInclude Include="CaveGenerator.h">
-      <Filter>Header Files\Game\Map</Filter>
-    </ClInclude>
-    <ClInclude Include="MapGenerator.h">
-      <Filter>Header Files\Game\Map</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
+    <ClInclude Include="MessageLog.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
-    <ClInclude Include="EventHandler.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{4e3fbf8d-f6b8-43e7-bd61-b814bbd2844c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{929df202-5c80-4763-9f7d-e886e0dda53a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{700943eb-8b08-41ea-8383-4d374e11d093}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Framework">
+      <UniqueIdentifier>{f348754a-12ce-4bb4-b189-fe4afc283fec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Framework">
+      <UniqueIdentifier>{9fb699df-3919-4c59-980e-682ec73a9b7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game">
+      <UniqueIdentifier>{3b88c97e-fcd6-4dce-bdd3-6b2987f3fc71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game\Map">
+      <UniqueIdentifier>{288272ec-96fe-471e-9067-11ace20b5f61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game">
+      <UniqueIdentifier>{e7d5430a-322d-4bd3-8d95-8138e033ff4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\Map">
+      <UniqueIdentifier>{e5e2d64d-df97-4ae3-98fd-e25619d00f95}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

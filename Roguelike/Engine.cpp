@@ -8,7 +8,8 @@ Engine& Engine::Instance()
 
 Engine::Engine()
 	: mGraphics(Graphics::Instance()), mAssetManager(AssetManager::Instance()),
-	mAudio(Audio::Instance()), mInputHandler(InputHandler::Instance()), mTimer(Timer::Instance())
+	mAudio(Audio::Instance()), mInputHandler(InputHandler::Instance()), mTimer(Timer::Instance()),
+	mMessageLog(Point(1, 25), 80, 7)
 {
 	mQuit = !mGraphics.Initialized();
 
@@ -36,6 +37,9 @@ void Engine::Update()
 	mMap->Update();
 
 	mEventHandler->HandlePlayer(mPlayer);
+
+	FOV::CalculateFOV(*mMap, mPlayer->GetXPos(), mPlayer->GetYPos(), 12);
+	mGraphics.SetCameraPos(mPlayer->GetXPos() * Sprite::TILE_SIZE, mPlayer->GetYPos() * Sprite::TILE_SIZE);
 }
 
 void Engine::LateUpdate()
@@ -50,6 +54,7 @@ void Engine::Render()
 	//Render game here
 	mMap->Draw();
 	mPlayer->Draw();
+	mMessageLog.Draw();
 
 	mGraphics.Render();
 }

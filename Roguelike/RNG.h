@@ -21,9 +21,9 @@ private:
 	std::uniform_int_distribution<int> mRoll;
 
 public:
-	int RandomNumber(int min, int max)
+	inline int RandomNumber(int min, int max)
 	{
-		return rint((float)max * mRoll(mGenerator) / 100) + min;
+		return rint((float)(max - min) * mRoll(mGenerator) / 100.0f) + min;
 	}
 };
 
