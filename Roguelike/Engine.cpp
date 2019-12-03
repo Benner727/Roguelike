@@ -38,7 +38,7 @@ void Engine::Update()
 
 	mEventHandler->HandlePlayer(mPlayer);
 
-	FOV::CalculateFOV(*mMap, mPlayer->GetXPos(), mPlayer->GetYPos(), 12);
+	FOV::CalculateFOV(*mMap, mPlayer->GetXPos(), mPlayer->GetYPos(), 14);
 	mGraphics.SetCameraPos(mPlayer->GetXPos() * Sprite::TILE_SIZE, mPlayer->GetYPos() * Sprite::TILE_SIZE);
 }
 
@@ -55,6 +55,7 @@ void Engine::Render()
 	mMap->Draw();
 	mPlayer->Draw();
 	mMessageLog.Draw();
+	MiniMap::Draw(*mMap, mPlayer->GetXPos(), mPlayer->GetYPos());
 
 	mGraphics.Render();
 }

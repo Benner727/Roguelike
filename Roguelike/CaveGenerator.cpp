@@ -34,6 +34,8 @@ std::vector<int> CaveGenerator::GenerateMap(int seed)
 		}
 	}
 
+	CreateEntryPoints();
+
 	if (GetRegions(0).size() > 1)
 		std::cout << "Error" << std::endl;
 

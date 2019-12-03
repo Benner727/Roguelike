@@ -40,8 +40,7 @@ void MessageLog::Draw()
 	std::list<Text>::iterator it;
 	for (it = mMessages.begin(); it != mMessages.end(); ++it)
 	{
-		int alpha = 255 * y / 6;
-		std::cout << alpha << std::endl;
+		int alpha = 255 * y / (mHeight - 1);
 		it->Alpha(alpha);
 		it->Draw(mPos.tileX, (mPos.tileY + y), true);
 		y--;

@@ -27,6 +27,7 @@ public:
 	bool MainRoom() { return mIsMainRoom; }
 	bool HasConnectedRooms() { return mConnectedRooms.size() > 0; }
 	bool IsConnected(const Room& otherRoom);
+	int TotalConnectedRooms() { return mConnectedRooms.size(); }
 
 	void SetAsMainRoom() { mIsMainRoom = true; }
 	void SetAccessibleFromMainRoom();

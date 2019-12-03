@@ -7,6 +7,7 @@ Map::Map(int width, int height)
 {
 	//mMapGenerator = new CaveGenerator(mWidth, mHeight);
 	mMapGenerator = new DungeonGenerator(mWidth, mHeight);
+	//mMapGenerator = new LevelGenerator(mWidth, mHeight);
 
 	mSeed = time(NULL);
 	for (auto& tileId : mMapGenerator->GenerateMap(mSeed))
@@ -67,7 +68,7 @@ std::vector<int> Map::GenerateDijkstraMap(int sourceX, int sourceY)
 	return tileFlags;
 }
 
-bool Map::Walkable(int x, int y)
+const bool Map::Walkable(int x, int y)
 {
 	//Coordinates are inside map and tile is floor
 	return (x >= 0 && x < mWidth && y >= 0 && y < mHeight) && mTiles[x + y * mWidth].walkable;
@@ -78,6 +79,7 @@ void Map::Update()
 	if (InputHandler::Instance().KeyPressed(SDL_SCANCODE_SPACE))
 	{
 		mSeed = time(NULL);
+		mTiles.clear();
 		for (auto& tileId : mMapGenerator->GenerateMap(mSeed))
 		{
 			if (tileId == 0)
@@ -86,8 +88,6 @@ void Map::Update()
 				mTiles.push_back(Tile(tileId, true, false));
 		}
 		std::cout << mSeed << std::endl;
-
-		std::vector<int> tileFlags = GenerateDijkstraMap(12, 12);
 	}
 }
 
@@ -97,6 +97,9 @@ void Map::Draw()
 	static Sprite floorVisible(8, 5, { 192, 121, 88 });
 	static Sprite wallExplored(8, 5, { 91, 68, 78 });
 	static Sprite floorExplored(8, 5, { 89, 56, 64 });
+
+	static Sprite startTile(8, 5, { 0, 255, 0 });
+	static Sprite endTile(8, 5, { 255, 0, 0 });
 
 	for (int y = 0; y < mHeight; y++)
 	{
@@ -110,7 +113,7 @@ void Map::Draw()
 				{
 					wallVisible.Draw(x, y);
 				}
-				else
+				else if (mTiles[x + y * mWidth].tileId == 0)
 				{
 					floorVisible.Draw(x, y);
 				}
@@ -128,4 +131,7 @@ void Map::Draw()
 			}
 		}
 	}
+
+	startTile.Draw(mMapGenerator->GetStart().tileX, mMapGenerator->GetStart().tileY);
+	endTile.Draw(mMapGenerator->GetEnd().tileX, mMapGenerator->GetEnd().tileY);
 }

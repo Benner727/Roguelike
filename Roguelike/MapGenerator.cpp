@@ -208,3 +208,63 @@ void MapGenerator::ConnectClosestRooms(std::vector<Room> allRooms, bool forceAcc
 		ConnectClosestRooms(allRooms, true);
 	}
 }
+
+void MapGenerator::CreateEntryPoints()
+{
+	std::vector<Point> region = GetRegions(0)[0];
+
+	for (int i = 0; i < region.size(); i++)
+	{
+		bool tileFound = true;
+
+		for (int y = -1; y <= 1; y++)
+		{
+			for (int x = -1; x <= 1; x++)
+			{
+				if (mTiles[(region[i].tileX + x) + (region[i].tileY + y) * mWidth] != 0)
+				{
+					tileFound = false;
+					break;
+				}
+			}
+			if (!tileFound) break;
+		}
+
+		if (tileFound)
+		{
+			mStart = Point(region[i].tileX, region[i].tileY);
+			break;
+		}
+	}
+
+	for (int i = region.size() - 1; i >= 0; i--)
+	{
+		bool tileFound = true;
+
+		for (int y = -1; y <= 1; y++)
+		{
+			for (int x = -1; x <= 1; x++)
+			{
+				if (mTiles[(region[i].tileX + x) + (region[i].tileY + y) * mWidth] != 0)
+				{
+					tileFound = false;
+					break;
+				}
+			}
+			if (!tileFound) break;
+		}
+
+		if (tileFound)
+		{
+			mEnd = Point(region[i].tileX, region[i].tileY);
+			break;
+		}
+	}
+
+	if (mRNG.RandomNumber(0, 100) > 50)
+	{
+		Point temp = mStart;
+		mStart = mEnd;
+		mEnd = temp;
+	}
+}

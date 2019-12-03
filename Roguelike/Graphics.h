@@ -21,6 +21,8 @@ private:
 	std::unique_ptr<SDL_Window, decltype(&SDL_DestroyWindow)> mWindow;
 	std::unique_ptr<SDL_Renderer, decltype(&SDL_DestroyRenderer)> mRenderer;
 
+	SDL_Color mDefaultDrawColor;
+
 	SDL_Rect mCamera;
 
 	Graphics();
@@ -40,6 +42,8 @@ public:
 	void DrawTexture(std::weak_ptr<SDL_Texture> tex, const SDL_Rect* clip = nullptr, SDL_Rect* rend = nullptr, bool ignoreCamera = false);
 
 	void SetCameraPos(int x, int y);
+
+	void DrawPixel(int x, int y, SDL_Color color);
 
 	void Render();
 };

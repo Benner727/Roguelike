@@ -1,6 +1,6 @@
 #include "DungeonGenerator.h"
 
-
+#include <iostream>
 
 DungeonGenerator::DungeonGenerator(int width, int height, bool smoothMap)
 	: MapGenerator(width, height), mSmoothMap(smoothMap)
@@ -20,13 +20,36 @@ void DungeonGenerator::CreateRoom()
 	int xPos = mRNG.RandomNumber(1, mWidth - width - 1);
 	int yPos = mRNG.RandomNumber(1, mHeight - height - 1);
 
-	for (int y = yPos; y < yPos + height; y++)
+	std::vector<Point> roomTiles;
+
+	if (CanPlace(xPos, yPos, width, height))
 	{
-		for (int x = xPos; x < xPos + width; x++)
+		for (int y = yPos; y < yPos + height; y++)
 		{
-			mTiles[x + y * mWidth] = 0;
+			for (int x = xPos; x < xPos + width; x++)
+			{
+				mTiles[x + y * mWidth] = 0;
+				
+				roomTiles.push_back(Point(x, y));
+			}
+		}
+
+		mRooms.push_back(Room(roomTiles, mTiles, mWidth));
+	}
+}
+
+bool DungeonGenerator::CanPlace(int cornerX, int cornerY, int width, int height)
+{
+	for (int y = cornerY - 1; y <= cornerY + height; y++)
+	{
+		for (int x = cornerX - 1; x <= cornerX + width; x++)
+		{
+			if (mTiles[x + y * mWidth] == 0)
+				return false;
 		}
 	}
+
+	return true;
 }
 
 void DungeonGenerator::BuildMap()
@@ -36,6 +59,8 @@ void DungeonGenerator::BuildMap()
 
 	for (std::vector<Point> roomRegion : roomRegions)
 		survivingRooms.push_back(Room(roomRegion, mTiles, mWidth));
+
+	//mRooms = survivingRooms;
 
 	std::sort(survivingRooms.begin(), survivingRooms.end());
 	survivingRooms.back().SetAsMainRoom();
@@ -99,19 +124,48 @@ std::vector<int> DungeonGenerator::GenerateMap(int seed)
 	SeedRNG(seed);
 
 	mTiles.clear();
+	mRooms.clear();
 
 	for (int i = 0; i < mWidth * mHeight; i++)
 		mTiles.push_back(1);
 
-	for (int i = 0; i < 20; i++)
+	for (int i = 0; i < ROOM_PLACE_ATTEMPTS; i++)
+	{
 		CreateRoom();
+
+		if (mRooms.size() >= MAX_ROOM_NUM)
+			break;
+	}
+
+	std::cout << "Rooms created: " << mRooms.size() << std::endl;
 
 	if (mSmoothMap)
 	{
 		SmoothMap();
 	}
 
+	std::cout << "Connecting rooms..." << std::endl;
+
 	BuildMap();
+
+	std::cout << "Rooms connected." << std::endl;
+
+	CreateEntryPoints();
+
+	/*
+	for (auto& room : mRooms)
+	{
+		std::vector<Point> entrances;
+		for (auto& tile : room.GetEdgeTiles())
+		{
+			if (mTiles[tile.tileX + tile.tileY * mWidth] == 0)
+				entrances.push_back(tile);
+		}
+	}
+	*/
+
+	if (GetRegions(0).size() > 1)
+		std::cout << "Error" << std::endl;
 
 	return mTiles;
 }

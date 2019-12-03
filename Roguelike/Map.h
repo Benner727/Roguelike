@@ -4,6 +4,7 @@
 #include "Text.h"
 #include "CaveGenerator.h"
 #include "DungeonGenerator.h"
+#include "LevelGenerator.h"
 
 struct Tile {
 	int tileId;
@@ -41,15 +42,18 @@ private:
 	std::vector<int> GenerateDijkstraMap(int sourceX, int sourceY);
 
 public:
-	int GetSeed() { return mSeed; }
+	const int GetSeed() { return mSeed; }
 
-	int Width() { return mWidth; }
-	int Height() { return mHeight; }
+	const int Width() { return mWidth; }
+	const int Height() { return mHeight; }
 
-	bool Walkable(int x, int y);
-	bool Opaque(int x, int y) { return mTiles[x + y * mWidth].opaque; }
+	const bool Walkable(int x, int y);
+	const bool Opaque(int x, int y) { return mTiles[x + y * mWidth].opaque; }
 	
 	void SetVisible(int x, int y, bool visible) { mTiles[x + y * mWidth].visible = visible; }
+
+	const std::vector<Tile> Tiles() { return mTiles; }
+	const Point StartPos() { return mMapGenerator->GetStart(); }
 
 	void Update();
 	void Draw();

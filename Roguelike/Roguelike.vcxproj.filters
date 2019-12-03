@@ -4,17 +4,11 @@
     <ClCompile Include="AssetManager.cpp">
       <Filter>Source Files\Framework</Filter>
     </ClCompile>
-    <ClCompile Include="CaveGenerator.cpp">
-      <Filter>Source Files\Game\Map</Filter>
-    </ClCompile>
     <ClCompile Include="Audio.cpp">
       <Filter>Source Files\Framework</Filter>
     </ClCompile>
     <ClCompile Include="Engine.cpp">
       <Filter>Source Files\Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="DungeonGenerator.cpp">
-      <Filter>Source Files\Game\Map</Filter>
     </ClCompile>
     <ClCompile Include="Graphics.cpp">
       <Filter>Source Files\Framework</Filter>
@@ -49,7 +43,16 @@
     <ClCompile Include="Timer.cpp">
       <Filter>Source Files\Framework</Filter>
     </ClCompile>
+    <ClCompile Include="DungeonGenerator.cpp">
+      <Filter>Source Files\Game\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="CaveGenerator.cpp">
+      <Filter>Source Files\Game\Map</Filter>
+    </ClCompile>
     <ClCompile Include="MessageLog.cpp">
+      <Filter>Source Files\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelGenerator.cpp">
       <Filter>Source Files\Game\Map</Filter>
     </ClCompile>
   </ItemGroup>
@@ -60,9 +63,6 @@
     <ClInclude Include="Audio.h">
       <Filter>Header Files\Framework</Filter>
     </ClInclude>
-    <ClInclude Include="CaveGenerator.h">
-      <Filter>Header Files\Game\Map</Filter>
-    </ClInclude>
     <ClInclude Include="EventHandler.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
@@ -71,9 +71,6 @@
     </ClInclude>
     <ClInclude Include="Engine.h">
       <Filter>Header Files\Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="DungeonGenerator.h">
-      <Filter>Header Files\Game\Map</Filter>
     </ClInclude>
     <ClInclude Include="Graphics.h">
       <Filter>Header Files\Framework</Filter>
@@ -109,6 +106,18 @@
       <Filter>Header Files\Framework</Filter>
     </ClInclude>
     <ClInclude Include="MessageLog.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="CaveGenerator.h">
+      <Filter>Header Files\Game\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="DungeonGenerator.h">
+      <Filter>Header Files\Game\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelGenerator.h">
+      <Filter>Header Files\Game\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="MiniMap.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
   </ItemGroup>

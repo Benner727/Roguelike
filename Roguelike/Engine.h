@@ -6,8 +6,8 @@
 #include "Timer.h"
 
 #include "EventHandler.h"
-#include "Map.h"
 #include "FOV.h"
+#include "MiniMap.h"
 #include "MessageLog.h"
 
 class Engine

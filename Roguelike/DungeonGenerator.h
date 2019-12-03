@@ -15,12 +15,19 @@ public:
 	~DungeonGenerator();
 
 private:
-	static const int MAX_ROOM_LENGTH = 12;
-	static const int MIN_ROOM_LENGTH = 5;
+	static const int MIN_ROOM_LENGTH = 7;
+	static const int MAX_ROOM_LENGTH = 15;
+	
+	static const int MAX_ROOM_NUM = 25;
+	static const int ROOM_PLACE_ATTEMPTS = 500;
 
 	bool mSmoothMap;
 
+	std::vector<Room> mRooms;
+
 	void CreateRoom();
+
+	bool CanPlace(int cornerX, int cornerY, int width, int height);
 
 	void BuildMap();
 	void CreatePassage(Room& roomA, Room& roomB, Point tileA, Point tileB);

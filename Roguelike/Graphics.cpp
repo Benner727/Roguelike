@@ -52,7 +52,8 @@ bool Graphics::Init()
 		return false;
 	}
 
-	SDL_SetRenderDrawColor(mRenderer.get(), 0x47, 0x2D, 0x3C, 0xFF);
+	mDefaultDrawColor = { 0x47, 0x2D, 0x3C, 0xFF };
+	SDL_SetRenderDrawColor(mRenderer.get(), mDefaultDrawColor.r, mDefaultDrawColor.g, mDefaultDrawColor.b, mDefaultDrawColor.a);
 	SDL_SetRenderDrawBlendMode(mRenderer.get(), SDL_BLENDMODE_BLEND);
 
 	int flags = IMG_INIT_PNG;
@@ -69,7 +70,7 @@ bool Graphics::Init()
 	}
 
 	//SDL_RenderSetLogicalSize(mRenderer.get(), SCREEN_WIDTH * 2, SCREEN_HEIGHT * 2);
-	mCamera = SDL_Rect{ 0, 0, (int)(SCREEN_WIDTH * 0.75f), (int)(SCREEN_HEIGHT * 0.75f)};
+	mCamera = SDL_Rect{ 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
 
 	return true;
 }
@@ -142,6 +143,13 @@ void Graphics::SetCameraPos(int x, int y)
 {
 	mCamera.x = x - mCamera.w * 0.5f;
 	mCamera.y = y - mCamera.h * 0.5f;
+}
+
+void Graphics::DrawPixel(int x, int y, SDL_Color color)
+{
+	SDL_SetRenderDrawColor(mRenderer.get(), color.r, color.g, color.b, color.a);
+	SDL_RenderDrawPoint(mRenderer.get(), x, y);
+	SDL_SetRenderDrawColor(mRenderer.get(), mDefaultDrawColor.r, mDefaultDrawColor.g, mDefaultDrawColor.b, mDefaultDrawColor.a);
 }
 
 void Graphics::Render()

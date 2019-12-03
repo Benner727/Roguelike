@@ -17,6 +17,9 @@ protected:
 	int mHeight;
 	RNG mRNG;
 
+	Point mStart;
+	Point mEnd;
+
 	std::vector<int> mTiles;
 
 	void SeedRNG(int seed);
@@ -32,7 +35,12 @@ protected:
 	void ConnectClosestRooms(std::vector<Room> allRooms, bool forceAccessibilityFromMainRoom = false);
 	virtual void CreatePassage(Room& roomA, Room& roomB, Point tileA, Point tileB) = 0;
 
+	void CreateEntryPoints();
+
 public:
+	Point GetStart() { return mStart; }
+	Point GetEnd() { return mEnd; }
+
 	virtual std::vector<int> GenerateMap(int seed) = 0;
 };
 

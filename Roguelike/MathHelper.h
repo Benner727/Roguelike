@@ -12,9 +12,22 @@ struct Point {
 		tileY = y;
 	}
 
+	Point(const Point& other) {
+		tileX = other.tileX;
+		tileY = other.tileY;
+	}
+
 	friend bool operator==(const Point& leftPoint, const Point& rightPoint)
 	{
 		return leftPoint.tileX == rightPoint.tileX && leftPoint.tileY == rightPoint.tileY;
+	}
+
+	friend bool operator<(const Point& leftPoint, const Point& rightPoint)
+	{
+		if (leftPoint.tileX != rightPoint.tileX)
+			return (leftPoint.tileX < rightPoint.tileX);
+		else
+			return (leftPoint.tileY < rightPoint.tileY);
 	}
 };
 
