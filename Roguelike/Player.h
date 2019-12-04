@@ -1,12 +1,14 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
+#include "MathHelper.h"
 #include "Sprite.h"
 
 class Player
 {
 public:
-	Player();
+	Player(int x = 0, int y = 0);
+	Player(Point pos);
 	~Player();
 
 private:
@@ -24,10 +26,7 @@ public:
 	const int GetXPos() { return xPosition; }
 	const int GetYPos() { return yPosition; }
 
-	void MoveLeft();
-	void MoveRight();
-	void MoveUp();
-	void MoveDown();
+	void Move(Point dir);
 
 	void Draw();
 };

@@ -15,7 +15,7 @@ Engine::Engine()
 
 	mEventHandler = new EventHandler(mInputHandler);
 	mMap = new Map(48 * 2, 32 * 2);
-	mPlayer = new Player();
+	mPlayer = new Player(mMap->StartPos());
 }
 
 Engine::~Engine()
@@ -36,7 +36,7 @@ void Engine::Update()
 	//Update game here
 	mMap->Update();
 
-	mEventHandler->HandlePlayer(mPlayer);
+	mEventHandler->HandlePlayer(*mPlayer, *mMap);
 
 	FOV::CalculateFOV(*mMap, mPlayer->GetXPos(), mPlayer->GetYPos(), 14);
 	mGraphics.SetCameraPos(mPlayer->GetXPos() * Sprite::TILE_SIZE, mPlayer->GetYPos() * Sprite::TILE_SIZE);

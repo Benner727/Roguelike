@@ -9,24 +9,29 @@ EventHandler::~EventHandler()
 {
 }
 
-void EventHandler::HandlePlayer(Player* mPlayer)
+void EventHandler::HandlePlayer(Player& player, Map& map)
 {
 	if (mInputHandler.KeyDown(mInputHandler.LastKey()))
 	{
+		Point dir;
+
 		switch (mInputHandler.LastKey())
 		{
 		case SDL_SCANCODE_A:
-			mPlayer->MoveLeft();
+			dir.tileX -= 1; //Move left
 			break;
 		case SDL_SCANCODE_D:
-			mPlayer->MoveRight();
+			dir.tileX += 1; //Move right
 			break;
 		case SDL_SCANCODE_S:
-			mPlayer->MoveDown();
+			dir.tileY += 1; //Move down
 			break;
 		case SDL_SCANCODE_W:
-			mPlayer->MoveUp();
+			dir.tileY -= 1; //Move up
 			break;
 		}
+		
+		if (map.Walkable(player.GetXPos() + dir.tileX, player.GetYPos() + dir.tileY))
+			player.Move(dir);
 	}
 }
