@@ -137,19 +137,12 @@ std::vector<int> DungeonGenerator::GenerateMap(int seed)
 			break;
 	}
 
-	std::cout << "Rooms created: " << mRooms.size() << std::endl;
-
 	if (mSmoothMap)
 	{
 		SmoothMap();
 	}
 
-	std::cout << "Connecting rooms..." << std::endl;
-
 	BuildMap();
-
-	std::cout << "Rooms connected." << std::endl;
-
 	CreateEntryPoints();
 
 	/*

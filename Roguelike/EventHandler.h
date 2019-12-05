@@ -2,9 +2,9 @@
 #define EVENTHANDLER_H
 
 #include "InputHandler.h"
-
 #include "Player.h"
 #include "Map.h"
+#include "MessageLog.h"
 
 class EventHandler
 {
@@ -13,10 +13,16 @@ public:
 	~EventHandler();
 
 private:
+	static const int MAX_MINIMAP_SIZE = 3;
+
 	InputHandler& mInputHandler;
 
+	int mMiniMapSize;
+
 public:
-	void HandlePlayer(Player& player, Map& map);
+	int MiniMapSize() { return mMiniMapSize; }
+
+	void HandlePlayer(Player& player, Map& map, MessageLog &messageLog);
 };
 
 #endif

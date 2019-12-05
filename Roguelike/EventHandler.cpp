@@ -3,35 +3,51 @@
 EventHandler::EventHandler(InputHandler& inputHandler)
 	: mInputHandler(inputHandler)
 {
+	mMiniMapSize = 2;
 }
 
 EventHandler::~EventHandler()
 {
 }
 
-void EventHandler::HandlePlayer(Player& player, Map& map)
+void EventHandler::HandlePlayer(Player& player, Map& map, MessageLog &messageLog)
 {
 	if (mInputHandler.KeyDown(mInputHandler.LastKey()))
 	{
-		Point dir;
+		Point newPos(player.GetXPos(), player.GetYPos());
 
 		switch (mInputHandler.LastKey())
 		{
 		case SDL_SCANCODE_A:
-			dir.tileX -= 1; //Move left
+			newPos.tileX -= 1; //Move left
 			break;
 		case SDL_SCANCODE_D:
-			dir.tileX += 1; //Move right
+			newPos.tileX += 1; //Move right
 			break;
 		case SDL_SCANCODE_S:
-			dir.tileY += 1; //Move down
+			newPos.tileY += 1; //Move down
 			break;
 		case SDL_SCANCODE_W:
-			dir.tileY -= 1; //Move up
+			newPos.tileY -= 1; //Move up
+			break;
+		case SDL_SCANCODE_SPACE:
+			if (player.GetXPos() == map.EndPos().tileX &&
+				player.GetYPos() == map.EndPos().tileY)
+			{
+				map.GenerateNewMap();
+				player.Move(map.StartPos());
+			}
+			break;
+		case SDL_SCANCODE_Z:
+			messageLog.ResetDisplayTimer();
+		case SDL_SCANCODE_M:
+			mMiniMapSize++;
+			if (mMiniMapSize > MAX_MINIMAP_SIZE)
+				mMiniMapSize = 0;
 			break;
 		}
 		
-		if (map.Walkable(player.GetXPos() + dir.tileX, player.GetYPos() + dir.tileY))
-			player.Move(dir);
+		if (map.Walkable(newPos.tileX, newPos.tileY))
+			player.Move(newPos);
 	}
 }

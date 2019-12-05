@@ -74,21 +74,18 @@ const bool Map::Walkable(int x, int y)
 	return (x >= 0 && x < mWidth && y >= 0 && y < mHeight) && mTiles[x + y * mWidth].walkable;
 }
 
-void Map::Update()
+void Map::GenerateNewMap()
 {
-	if (InputHandler::Instance().KeyPressed(SDL_SCANCODE_SPACE))
+	mSeed = time(NULL);
+	mTiles.clear();
+	for (auto& tileId : mMapGenerator->GenerateMap(mSeed))
 	{
-		mSeed = time(NULL);
-		mTiles.clear();
-		for (auto& tileId : mMapGenerator->GenerateMap(mSeed))
-		{
-			if (tileId == 0)
-				mTiles.push_back(Tile(tileId, false, true));
-			else
-				mTiles.push_back(Tile(tileId, true, false));
-		}
-		std::cout << mSeed << std::endl;
+		if (tileId == 0)
+			mTiles.push_back(Tile(tileId, false, true));
+		else
+			mTiles.push_back(Tile(tileId, true, false));
 	}
+	std::cout << mSeed << std::endl;
 }
 
 void Map::Draw()

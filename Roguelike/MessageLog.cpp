@@ -3,8 +3,10 @@
 
 
 MessageLog::MessageLog(Point pos, int width, int height)
-	: mPos(pos), mWidth(width), mHeight(height)
+	: mTimer(Timer::Instance()), mPos(pos), mWidth(width), mHeight(height)
 {
+	mAlwaysDisplay = false;
+
 	AddMessage("C++ is better than Python.", { 255, 255, 0 });
 	AddMessage("C++ is better than Python. 1", { 255, 0, 0 });
 	AddMessage("C++ is better than Python. 2", { 0, 255, 0 });
@@ -24,25 +26,40 @@ void MessageLog::AddMessage(std::string message, SDL_Color color)
 	{
 		std::string msg = message.substr(0, mWidth);
 		message = message.substr(mWidth, message.size());
-		mMessages.push_front(Text(msg, 15, color));
+		mMessages.push_front(Message(Text(msg, 15, color), DEFAULT_DISPLAY_TIME));
 	}
 
-	mMessages.push_front(Text(message, 15, color));
+	mMessages.push_front(Message(Text(message, 15, color), DEFAULT_DISPLAY_TIME));
 
 	while (mMessages.size() > mHeight)
 		mMessages.pop_back();
+}
+
+void MessageLog::ResetDisplayTimer()
+{
+	std::list<Message>::iterator it;
+	for (it = mMessages.begin(); it != mMessages.end(); ++it)
+		it->displayTimer = DEFAULT_DISPLAY_TIME;
 }
 
 void MessageLog::Draw()
 {
 	int y = mHeight - 1;
 
-	std::list<Text>::iterator it;
+	if (mAlwaysDisplay)
+		ResetDisplayTimer();
+
+	std::list<Message>::iterator it;
 	for (it = mMessages.begin(); it != mMessages.end(); ++it)
 	{
-		int alpha = 255 * y / (mHeight - 1);
-		it->Alpha(alpha);
-		it->Draw(mPos.tileX, (mPos.tileY + y), true);
-		y--;
+		if (it->displayTimer > 0.0f)
+		{
+			int alpha = 255 * y / (mHeight - 1);
+			it->text.Alpha(alpha);
+			it->text.Draw(mPos.tileX, (mPos.tileY + y), true);
+			y--;
+
+			it->displayTimer -= mTimer.DeltaTime();
+		}
 	}
 }

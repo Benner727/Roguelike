@@ -21,9 +21,9 @@ void Player::Move(int x, int y)
 	yPosition = y;
 }
 
-void Player::Move(Point dir)
+void Player::Move(Point pos)
 {
-	Move(xPosition + dir.tileX, yPosition + dir.tileY);
+	Move(pos.tileX, pos.tileY);
 }
 
 void Player::Draw()

@@ -4,11 +4,9 @@
 #include "Audio.h"
 #include "InputHandler.h"
 #include "Timer.h"
-
 #include "EventHandler.h"
 #include "FOV.h"
 #include "MiniMap.h"
-#include "MessageLog.h"
 
 class Engine
 {

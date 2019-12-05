@@ -26,7 +26,7 @@ public:
 	const int GetXPos() { return xPosition; }
 	const int GetYPos() { return yPosition; }
 
-	void Move(Point dir);
+	void Move(Point pos);
 
 	void Draw();
 };

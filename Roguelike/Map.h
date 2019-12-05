@@ -54,8 +54,10 @@ public:
 
 	const std::vector<Tile> Tiles() { return mTiles; }
 	const Point StartPos() { return mMapGenerator->GetStart(); }
+	const Point EndPos() { return mMapGenerator->GetEnd(); }
 
-	void Update();
+	void GenerateNewMap();
+
 	void Draw();
 };
 
