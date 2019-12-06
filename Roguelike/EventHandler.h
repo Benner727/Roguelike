@@ -19,6 +19,8 @@ private:
 
 	int mMiniMapSize;
 
+	void Move(Player& player, Map& map, SDL_Scancode input);
+
 public:
 	int MiniMapSize() { return mMiniMapSize; }
 
