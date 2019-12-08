@@ -55,6 +55,18 @@
     <ClCompile Include="LevelGenerator.cpp">
       <Filter>Source Files\Game\Map</Filter>
     </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>Source Files\Game\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="Equippable.cpp">
+      <Filter>Source Files\Game\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="Consumable.cpp">
+      <Filter>Source Files\Game\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemBuilder.cpp">
+      <Filter>Source Files\Game\Items</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetManager.h">
@@ -120,6 +132,24 @@
     <ClInclude Include="MiniMap.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>Header Files\Game\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Equippable.h">
+      <Filter>Header Files\Game\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Armor.h">
+      <Filter>Header Files\Game\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Weapon.h">
+      <Filter>Header Files\Game\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Consumable.h">
+      <Filter>Header Files\Game\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemBuilder.h">
+      <Filter>Header Files\Game\Items</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
@@ -148,6 +178,12 @@
     </Filter>
     <Filter Include="Source Files\Game\Map">
       <UniqueIdentifier>{e5e2d64d-df97-4ae3-98fd-e25619d00f95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game\Items">
+      <UniqueIdentifier>{e17493f5-c04b-4c4e-81da-93bbfb0911a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\Items">
+      <UniqueIdentifier>{f4bfd074-e6c2-4b1c-959b-52ec9a41fd86}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
