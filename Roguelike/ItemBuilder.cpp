@@ -2,6 +2,59 @@
 
 
 
+std::vector<ItemBuilder::WeaponTemplate> ItemBuilder::mWeaponTemplates =
+{
+	//Melee
+	WeaponTemplate({"Bronze", "Iron", "Steel"}, {"Sword"}, CombatType::melee, 2.5f, 1, false, true, false, false, false),
+	WeaponTemplate({"Bronze", "Iron", "Steel"}, {"Mace"}, CombatType::melee, 2.5f, 1, false, true, false, false, false),
+	WeaponTemplate({"Bronze", "Iron", "Steel"}, {"Greataxe"}, CombatType::melee, 3.5f, 1, true, true, false, false, false),
+	WeaponTemplate({"Bronze", "Iron", "Steel"}, {"Maul"}, CombatType::melee, 3.5f, 1, true, true, false, false, true),
+
+	//Ranged
+	WeaponTemplate({"Wood"}, {"Recurve Bow"}, CombatType::ranged, 3.5f, 6, true, false, true, false, true),
+	WeaponTemplate({"Wood"}, {"Long Bow"}, CombatType::ranged, 3.0f, 8, true, false, true, false, true),
+	WeaponTemplate({"Wood"}, {"Crossbow"}, CombatType::ranged, 2.5f, 4, false, false, true, false, true),
+
+	//Magic
+	WeaponTemplate({"Wood"}, {"Staff"}, CombatType::magic, 3.5f, 7, true, false, false, true, true),
+	WeaponTemplate({"Wood"}, {"Wand"}, CombatType::magic, 2.5f, 5, false, false, false, true, true),
+};
+
+std::vector<ItemBuilder::ArmorTemplate> ItemBuilder::mArmorTemplates =
+{
+	//Melee
+	ArmorTemplate(EquipmentSlot::head, {"Bronze", "Iron", "Steel"}, {"Faceguard", "Helmet"}, 0.35f, true, false, false, true),
+	ArmorTemplate(EquipmentSlot::chest, {"Bronze", "Iron", "Steel"}, {"Hauberk", "Platebody"}, 1.0f, true, false, false, true),
+	ArmorTemplate(EquipmentSlot::legs, {"Bronze", "Iron", "Steel"}, {"Tassets", "Platelegs"}, 0.85f, true, false, false, true),
+	ArmorTemplate(EquipmentSlot::gloves, {"Bronze", "Iron", "Steel"}, {"Gauntlets", "Gloves"}, 0.25f, true, false, false, true),
+	ArmorTemplate(EquipmentSlot::boots, {"Bronze", "Iron", "Steel"}, {"Greaves", "Boots"}, 0.25f, true, false, false, true),
+
+	//Ranged
+	ArmorTemplate(EquipmentSlot::head, {"Leather", "Hide", "Chain"}, {"Cowl", "Coif"}, 0.35f, false, true, true, false),
+	ArmorTemplate(EquipmentSlot::chest, {"Leather", "Hide", "Chain"}, {"Tunic", "Body"}, 1.0f, false, true, true, false),
+	ArmorTemplate(EquipmentSlot::legs, {"Leather", "Hide", "Chain"}, {"Chaps", "Pants"}, 0.85f, false, true, true, false),
+	ArmorTemplate(EquipmentSlot::gloves, {"Leather", "Hide", "Chain"}, {"Vambraces", "Gloves"}, 0.25f, false, true, true, false),
+	ArmorTemplate(EquipmentSlot::boots, {"Leather", "Hide", "Chain"}, {"Shoes", "Boots"}, 0.25f, false, true, true, false),
+
+	//Magic
+	ArmorTemplate(EquipmentSlot::head, {"Cloth", "Silk"}, {"Hood", "Hat"}, 0.35f, false, false, true, true),
+	ArmorTemplate(EquipmentSlot::chest, {"Cloth", "Silk"}, {"Robe", "Shirt"}, 1.0f, false, false, true, true),
+	ArmorTemplate(EquipmentSlot::legs, {"Cloth", "Silk"}, {"Skirt", "Leggings"}, 0.85f, false, false, true, true),
+	ArmorTemplate(EquipmentSlot::gloves, {"Cloth", "Silk"}, {"Wraps", "Gloves"}, 0.25f, false, false, true, true),
+	ArmorTemplate(EquipmentSlot::boots, {"Cloth", "Silk"}, {"Socks", "Slippers"}, 0.25f, false, false, true, true),
+
+	//Offhand
+	ArmorTemplate(EquipmentSlot::cloak, {"Wood"}, {"Buckler"}, 0.35f, true, true, false, false),
+	ArmorTemplate(EquipmentSlot::cloak, {"Bronze", "Iron", "Steel" }, {"Shield"}, 0.55f, true, false, false, true),
+	ArmorTemplate(EquipmentSlot::cloak, {"Green", "Pink"}, {"Ward"}, 0.15f, false, false, true, true),
+	ArmorTemplate(EquipmentSlot::cloak, {"Flame", "Earth", "Wind"}, {"Totem"}, 0.15f, false, false, true, true),
+
+	//Misc
+	ArmorTemplate(EquipmentSlot::cloak, {"Fur", "Scale"}, {"Cape", "Cloak"}, 0.15f, true, true, true, true),
+	ArmorTemplate(EquipmentSlot::amulet, {"Brass", "Silver", "Gold"}, {"Amulet", "Necklace"}, 0.0f, true, true, true, true),
+	ArmorTemplate(EquipmentSlot::ring, {"Brass", "Silver", "Gold"}, {"Ring", "Heirloom"}, 0.0f, true, true, true, true)
+};
+
 ItemBuilder::ItemBuilder()
 	: mRNG(RNG(time(nullptr)))
 {
@@ -11,6 +64,7 @@ ItemBuilder::ItemBuilder()
 ItemBuilder::~ItemBuilder()
 {
 }
+
 
 ItemQuality ItemBuilder::RollQuality()
 {
