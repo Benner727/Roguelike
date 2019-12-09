@@ -11,8 +11,8 @@ public:
 	~Player();
 
 private:
-	static const int PLAYER_POS_X = 26;
-	static const int PLAYER_POS_Y = 0;
+	static const int SPRITE_TILE_X = 26;
+	static const int SPRITE_TILE_Y = 0;
 
 public:
 };
