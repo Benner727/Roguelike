@@ -1,8 +1,7 @@
 #include "Player.h"
 
 Player::Player(int x, int y)
-	: xPosition(x), yPosition(y),
-	mSprite(Sprite(PLAYER_POS_X, PLAYER_POS_Y, { 255, 255, 255 }))
+	: Entity(x, y, SPRITE_TILE_X, SPRITE_TILE_Y),
 {
 }
 
@@ -13,20 +12,4 @@ Player::Player(Point pos)
 
 Player::~Player()
 {
-}
-
-void Player::Move(int x, int y)
-{
-	xPosition = x;
-	yPosition = y;
-}
-
-void Player::Move(Point pos)
-{
-	Move(pos.tileX, pos.tileY);
-}
-
-void Player::Draw()
-{
-	mSprite.Draw(xPosition, yPosition);
 }

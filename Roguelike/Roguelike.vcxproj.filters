@@ -52,8 +52,8 @@
     <ClCompile Include="MessageLog.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
-    <ClCompile Include="LevelGenerator.cpp">
-      <Filter>Source Files\Game\Map</Filter>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Source Files\Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -105,19 +105,19 @@
     <ClInclude Include="Timer.h">
       <Filter>Header Files\Framework</Filter>
     </ClInclude>
-    <ClInclude Include="MessageLog.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
     <ClInclude Include="CaveGenerator.h">
       <Filter>Header Files\Game\Map</Filter>
     </ClInclude>
     <ClInclude Include="DungeonGenerator.h">
       <Filter>Header Files\Game\Map</Filter>
     </ClInclude>
-    <ClInclude Include="LevelGenerator.h">
-      <Filter>Header Files\Game\Map</Filter>
+    <ClInclude Include="MessageLog.h">
+      <Filter>Header Files\Game</Filter>
     </ClInclude>
     <ClInclude Include="MiniMap.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
   </ItemGroup>
