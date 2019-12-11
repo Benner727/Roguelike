@@ -61,7 +61,6 @@ private:
 	RNG mRNG;
 
 	ItemQuality RollQuality();
-	EquipmentSlot RollSlot(bool includeWeapon);
 	int RollStat(int tier, ItemQuality quality);
 	int RollDamage(int tier);
 	int RollArmorValue(int tier);

@@ -7,7 +7,9 @@ enum class CombatType { melee, ranged, magic };
 class Weapon : public Equippable
 {
 public:
-	Weapon(std::string name, Sprite sprite, ItemQuality quality, int tier, int strength, int agility, int intellect, int spirit, int stamina, int damage, CombatType type, int range, bool twoHanded = false)
+	Weapon(std::string name, Sprite sprite, ItemQuality quality, int tier, 
+		int strength, int agility, int intellect, int spirit, int stamina, 
+		int damage, CombatType type, int range, bool twoHanded = false)
 		: Equippable(name, sprite, EquipmentSlot::weapon, quality, tier, strength, agility, intellect, spirit, stamina), mDamage(damage), mType(type), mRange(range), mTwoHanded(twoHanded)
 	{
 
