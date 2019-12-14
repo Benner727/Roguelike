@@ -14,6 +14,8 @@ public:
 	~ItemBuilder();
 
 private:
+	enum Stat { Strength, Agility, Intellect, Spirit, TOTAL_STATS };
+
 	struct WeaponTemplate {
 		EquipmentSlot slot;
 		std::vector<std::string> material;
@@ -22,17 +24,15 @@ private:
 		float damageModifier;
 		int range;
 		bool twoHanded;
-		bool strength;
-		bool agility;
-		bool intellect;
-		bool spirit;
+		std::vector<Stat> primary;
+		std::vector<Stat> secondary;
 
 		WeaponTemplate(std::vector<std::string> _material, std::vector<std::string> _piece,
 			CombatType _type, float _damageModifier, int _range, bool _twoHanded, 
-			bool _strength, bool _agility, bool _intellect, bool _spirit)
+			std::vector<Stat> _primary, std::vector<Stat> _secondary)
 			: material(_material), piece(_piece), type(_type), 
 			damageModifier(_damageModifier), range(_range), twoHanded(_twoHanded), 
-			strength(_strength), agility(_agility), intellect(_intellect), spirit(_spirit)
+			primary(_primary), secondary(_secondary)
 		{
 			slot = EquipmentSlot::weapon;
 		}
@@ -43,15 +43,13 @@ private:
 		std::vector<std::string> material;
 		std::vector<std::string> piece;
 		float defenseModifier;
-		bool strength;
-		bool agility;
-		bool intellect;
-		bool spirit;
+		std::vector<Stat> primary;
+		std::vector<Stat> secondary;
 
 		ArmorTemplate(EquipmentSlot _slot, std::vector<std::string> _material, std::vector<std::string> _piece,
-			float _defenseModifier, bool _strength, bool _agility, bool _intellect, bool _spirit)
+			float _defenseModifier, std::vector<Stat> _primary, std::vector<Stat> _secondary)
 			: slot(_slot), material(_material), piece(_piece), defenseModifier(_defenseModifier),
-			strength(_strength), agility(_agility), intellect(_intellect), spirit(_spirit)
+			primary(_primary), secondary(_secondary)
 		{}
 	};
 
