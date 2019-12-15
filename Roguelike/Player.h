@@ -6,8 +6,8 @@
 class Player : public Entity
 {
 public:
-	Player(int x = 0, int y = 0);
 	Player(Point pos);
+	Player(int x = 0, int y = 0);
 	~Player();
 
 private:

@@ -52,8 +52,13 @@
     <ClCompile Include="MessageLog.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
+    <ClCompile Include="Consumable.cpp" />
+    <ClCompile Include="Equippable.cpp" />
+    <ClCompile Include="Item.cpp" />
+    <ClCompile Include="ItemBuilder.cpp" />
+    <ClCompile Include="LevelGenerator.cpp" />
     <ClCompile Include="Entity.cpp">
-      <Filter>Source Files\Game</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -117,6 +122,13 @@
     <ClInclude Include="MiniMap.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
+    <ClInclude Include="Armor.h" />
+    <ClInclude Include="Consumable.h" />
+    <ClInclude Include="Equippable.h" />
+    <ClInclude Include="Item.h" />
+    <ClInclude Include="ItemBuilder.h" />
+    <ClInclude Include="LevelGenerator.h" />
+    <ClInclude Include="Weapon.h" />
     <ClInclude Include="Entity.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>

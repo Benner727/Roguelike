@@ -7,46 +7,48 @@
 class Entity
 {
 public:
-	Entity(int x = 0, int y = 0, int spriteX = SPRITE_TILE_X, int spriteY = SPRITE_TILE_Y);
-	Entity(Point pos);
+	Entity(Point pos, Sprite sprite);
 	~Entity();
 
 protected:
 	Sprite mSprite;
-	static const int SPRITE_TILE_X = 25;
-	static const int SPRITE_TILE_Y = 0;
 	
-	std::string name;
-	int health;
-	int strength;
-	int intellect;
-	int spirit;
-	int stamina;
-	int armor;
-	int resistance;
-	
-	int xPosition;
-	int yPosition;
+	std::string mName;
+	Point mPos;
+
+	int mHealth;
+	int mMaxHealth;
+
+	int mStrength;
+	int mIntellect;
+	int mSpirit;
+	int mStamina;
+	int mArmor;
+	int mResistance;
+
 	void Move(int x, int y);
 
-
 public:
-	const std::string GetName() { return name; }
-	const int GetHealth() { return health; }
-	const int GetStrength() { return strength; }
-	const int GetIntellect() { return intellect; }
-	const int GetSpirit() { return spirit; }
-	const int GetStamina() { return stamina; }
-	const int GetArmor() { return armor; }
-	const int GetResistance() { return resistance; }
+	std::string Name() const { return mName; }
+	int Health() const { return mHealth; }
+	int MaxHealth() const { return mMaxHealth; }
 
-	bool Dead() { return health <= 0;  }
-	void Heal(int amount) { health += amount; }
-	void TakeDamage(int amount) { health -= amount; }
+	int Strength() const { return mStrength; }
+	int Intellect() const { return mIntellect; }
+	int Spirit() const { return mSpirit; }
+	int Stamina() const { return mStamina; }
+	int Armor() const { return mArmor; }
+	int Resistance() const { return mResistance; }
 
-	const int GetXPos() { return xPosition; }
-	const int GetYPos() { return yPosition; }
+	bool Dead() { return mHealth <= 0;  }
+	void Heal(int amount) { mHealth += amount; if (mHealth > mMaxHealth) mHealth = mMaxHealth; }
+	void TakeDamage(int amount) { mHealth -= amount; }
+
+	int GetXPos() const { return mPos.tileX; }
+	int GetYPos() const { return mPos.tileY; }
+	Point Position() const { return mPos; }
 	void Move(Point pos);
+
 	void Draw();
 };
 

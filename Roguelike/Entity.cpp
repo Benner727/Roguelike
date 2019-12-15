@@ -1,13 +1,9 @@
 #include "Entity.h"
 
-Entity::Entity(int x, int y, int spriteX, int spriteY)
-	: xPosition(x), yPosition(y),
-	mSprite(Sprite(spriteX, spriteY, { 255, 255, 255 }))
-{
-}
 
-Entity::Entity(Point pos)
-	: Entity(pos.tileX, pos.tileY)
+
+Entity::Entity(Point pos, Sprite sprite)
+	: mPos(pos), mSprite(sprite)
 {
 }
 
@@ -17,8 +13,8 @@ Entity::~Entity()
 
 void Entity::Move(int x, int y)
 {
-	xPosition = x;
-	yPosition = y;
+	mPos.tileX = x;
+	mPos.tileY = y;
 }
 
 void Entity::Move(Point pos)
@@ -28,5 +24,5 @@ void Entity::Move(Point pos)
 
 void Entity::Draw()
 {
-	mSprite.Draw(xPosition, yPosition);
+	mSprite.Draw(mPos.tileX, mPos.tileY);
 }
