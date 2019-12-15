@@ -12,28 +12,40 @@ public:
 	~Entity();
 
 protected:
+	Sprite mSprite;
 	static const int SPRITE_TILE_X = 25;
 	static const int SPRITE_TILE_Y = 0;
-	static const int MAX_HEALTH = 100;
-
+	
 	std::string name;
-	int health = MAX_HEALTH;
-	Sprite mSprite;
+	int health;
+	int strength;
+	int intellect;
+	int spirit;
+	int stamina;
+	int armor;
+	int resistance;
 	
 	int xPosition;
 	int yPosition;
 	void Move(int x, int y);
 
 
-
 public:
 	const std::string GetName() { return name; }
 	const int GetHealth() { return health; }
+	const int GetStrength() { return strength; }
+	const int GetIntellect() { return intellect; }
+	const int GetSpirit() { return spirit; }
+	const int GetStamina() { return stamina; }
+	const int GetArmor() { return armor; }
+	const int GetResistance() { return resistance; }
+
+	bool Dead() { return health <= 0;  }
+	void Heal(int amount) { health += amount; }
+	void TakeDamage(int amount) { health -= amount; }
+
 	const int GetXPos() { return xPosition; }
 	const int GetYPos() { return yPosition; }
-
-	void setName(std::string newName) { name = newName;  }
-	void changeHealth(int healthDiff) { health += healthDiff; }
 	void Move(Point pos);
 	void Draw();
 };

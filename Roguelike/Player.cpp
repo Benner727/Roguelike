@@ -1,7 +1,7 @@
 #include "Player.h"
 
 Player::Player(int x, int y)
-	: Entity(x, y, SPRITE_TILE_X, SPRITE_TILE_Y),
+	: Entity(x, y, SPRITE_TILE_X, SPRITE_TILE_Y)
 {
 }
 
