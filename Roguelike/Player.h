@@ -1,34 +1,20 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include "MathHelper.h"
-#include "Sprite.h"
+#include "Entity.h"
 
-class Player
+class Player : public Entity
 {
 public:
-	Player(int x = 0, int y = 0);
 	Player(Point pos);
+	Player(int x = 0, int y = 0);
 	~Player();
 
 private:
-	static const int PLAYER_POS_X = 26;
-	static const int PLAYER_POS_Y = 0;
-
-	int xPosition;
-	int yPosition;
-
-	Sprite mSprite;
-
-	void Move(int x, int y);
+	static const int SPRITE_TILE_X = 26;
+	static const int SPRITE_TILE_Y = 0;
 
 public:
-	const int GetXPos() { return xPosition; }
-	const int GetYPos() { return yPosition; }
-
-	void Move(Point pos);
-
-	void Draw();
 };
 
 #endif

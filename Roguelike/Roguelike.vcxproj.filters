@@ -52,8 +52,13 @@
     <ClCompile Include="MessageLog.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
-    <ClCompile Include="LevelGenerator.cpp">
-      <Filter>Source Files\Game\Map</Filter>
+    <ClCompile Include="Consumable.cpp" />
+    <ClCompile Include="Equippable.cpp" />
+    <ClCompile Include="Item.cpp" />
+    <ClCompile Include="ItemBuilder.cpp" />
+    <ClCompile Include="LevelGenerator.cpp" />
+    <ClCompile Include="Entity.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Item.cpp">
       <Filter>Source Files\Game\Items</Filter>
@@ -117,21 +122,29 @@
     <ClInclude Include="Timer.h">
       <Filter>Header Files\Framework</Filter>
     </ClInclude>
-    <ClInclude Include="MessageLog.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
     <ClInclude Include="CaveGenerator.h">
       <Filter>Header Files\Game\Map</Filter>
     </ClInclude>
     <ClInclude Include="DungeonGenerator.h">
       <Filter>Header Files\Game\Map</Filter>
     </ClInclude>
-    <ClInclude Include="LevelGenerator.h">
-      <Filter>Header Files\Game\Map</Filter>
+    <ClInclude Include="MessageLog.h">
+      <Filter>Header Files\Game</Filter>
     </ClInclude>
     <ClInclude Include="MiniMap.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
+<<<<<<< HEAD
+    <ClInclude Include="Armor.h" />
+    <ClInclude Include="Consumable.h" />
+    <ClInclude Include="Equippable.h" />
+    <ClInclude Include="Item.h" />
+    <ClInclude Include="ItemBuilder.h" />
+    <ClInclude Include="LevelGenerator.h" />
+    <ClInclude Include="Weapon.h" />
+    <ClInclude Include="Entity.h">
+      <Filter>Header Files\Game</Filter>
+=======
     <ClInclude Include="Item.h">
       <Filter>Header Files\Game\Items</Filter>
     </ClInclude>
@@ -149,6 +162,7 @@
     </ClInclude>
     <ClInclude Include="ItemBuilder.h">
       <Filter>Header Files\Game\Items</Filter>
+>>>>>>> master
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
