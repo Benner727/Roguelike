@@ -1,3 +1,0 @@
-﻿  DungeonGenerator.cpp
-c:\users\2339695\source\repos\roguelike\roguelike\rng.h(26): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-  Roguelike.vcxproj -> C:\Users\2339695\source\repos\Roguelike\Debug\Roguelike.exe
