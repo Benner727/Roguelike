@@ -62,6 +62,7 @@ private:
 	int RollStat(int tier, ItemQuality quality);
 	int RollDamage(int tier);
 	int RollArmorValue(int tier);
+	SDL_Color ItemColor(ItemQuality quality);
 
 public:
 	Weapon* GetRandomWeapon(int tier);

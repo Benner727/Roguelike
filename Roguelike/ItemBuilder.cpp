@@ -108,6 +108,35 @@ int ItemBuilder::RollArmorValue(int tier)
 	return armorValue;
 }
 
+SDL_Color ItemBuilder::ItemColor(ItemQuality quality)
+{
+	SDL_Color color = { 230, 204, 128 };
+
+	switch (quality)
+	{
+	case ItemQuality::poor:
+		color = { 157, 157, 157 };
+		break;
+	case ItemQuality::common:
+		color = { 255, 255, 255 };
+		break;
+	case ItemQuality::uncommon:
+		color = { 30, 255, 0 };
+		break;
+	case ItemQuality::rare:
+		color = { 0, 112, 221 };
+		break;
+	case ItemQuality::epic:
+		color = { 163, 53, 238 };
+		break;
+	case ItemQuality::legendary:
+		color = { 255, 128, 0 };
+		break;
+	}
+
+	return color;
+}
+
 Weapon * ItemBuilder::GetRandomWeapon(int tier)
 {
 	WeaponTemplate itemTemplate = mWeaponTemplates[mRNG.RandomNumber(0, mWeaponTemplates.size() - 1)];
@@ -135,7 +164,7 @@ Weapon * ItemBuilder::GetRandomWeapon(int tier)
 
 	int damage = RollDamage(tier) * itemTemplate.damageModifier;
 
-	Weapon* weapon = new Weapon(name, Sprite(0, 0, { 255, 255, 255 }), quality, tier,
+	Weapon* weapon = new Weapon(name, Sprite(0, 23, ItemColor(quality)), quality, tier,
 		stats[Stat::Strength], stats[Stat::Agility], stats[Stat::Intellect], stats[Stat::Spirit], stamina, damage,
 		itemTemplate.type, itemTemplate.range, itemTemplate.twoHanded);
 
@@ -179,7 +208,7 @@ Armor * ItemBuilder::GetRandomArmor(int tier)
 	else
 		ceil(resistance *= 0.66f);
 
-	Armor* armor = new Armor(name, Sprite(0, 0, { 255, 255, 255 }), slot, quality, tier,
+	Armor* armor = new Armor(name, Sprite(0, 31, ItemColor(quality)), slot, quality, tier,
 		stats[Stat::Strength], stats[Stat::Agility], stats[Stat::Intellect], stats[Stat::Spirit], 
 		stamina, defense, resistance);
 
@@ -188,5 +217,8 @@ Armor * ItemBuilder::GetRandomArmor(int tier)
 
 Equippable * ItemBuilder::GetRandomEquippable(int tier)
 {
-	return nullptr;
+	if (mRNG.RandomNumber(0, 4) == 0)
+		return GetRandomWeapon(tier);
+	else
+		return GetRandomArmor(tier);
 }
