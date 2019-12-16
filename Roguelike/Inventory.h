@@ -1,4 +1,5 @@
-#pragma once
+#ifndef INVENTORY_H
+#define INVENTORY_H
 
 #include "Item.h"
 
@@ -16,9 +17,13 @@ private:
 	std::vector<Item*> mItems;
 
 public:
-	void PickUp(Item* item);
-	Item* Drop(int index);
+	void Add(Item* item);
+	Item* Remove(int index);
 
 	Item* GetIndex(int index);
-	int Size() const;
+
+	int Size() const { return mItems.size(); }
+	bool Full() const { return Size() == MAX_SIZE; }
 };
+
+#endif

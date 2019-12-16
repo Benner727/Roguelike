@@ -71,10 +71,10 @@
       <Filter>Source Files\Game\Actors</Filter>
     </ClCompile>
     <ClCompile Include="Equipment.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Game\Actors</Filter>
     </ClCompile>
     <ClCompile Include="Inventory.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Game\Actors</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -162,11 +162,11 @@
     <ClInclude Include="Player.h">
       <Filter>Header Files\Game\Actors</Filter>
     </ClInclude>
-    <ClInclude Include="Inventory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Equipment.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Game\Actors</Filter>
+    </ClInclude>
+    <ClInclude Include="Inventory.h">
+      <Filter>Header Files\Game\Actors</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

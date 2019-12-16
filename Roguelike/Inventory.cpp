@@ -13,12 +13,12 @@ Inventory::~Inventory()
 		delete item;
 }
 
-void Inventory::PickUp(Item* item)
+void Inventory::Add(Item* item)
 {
 	mItems.push_back(item);
 }
 
-Item* Inventory::Drop(int index)
+Item* Inventory::Remove(int index)
 {
 	Item* item = mItems[index];
 	mItems.erase(mItems.begin() + index);
@@ -32,9 +32,4 @@ Item* Inventory::GetIndex(int index)
 		return nullptr;
 
 	return mItems[index];
-}
-
-int Inventory::Size() const
-{
-	return mItems.size();
 }

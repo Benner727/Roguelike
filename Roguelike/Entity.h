@@ -23,13 +23,15 @@ protected:
 	int mIntellect;
 	int mSpirit;
 	int mStamina;
-	int mArmor;
+	int mDefense;
 	int mResistance;
 
 	void Move(int x, int y);
 
 public:
 	std::string Name() const { return mName; }
+	void Rename(std::string name) { mName = name; }
+
 	int Health() const { return mHealth; }
 	int MaxHealth() const { return mMaxHealth; }
 
@@ -37,10 +39,10 @@ public:
 	int Intellect() const { return mIntellect; }
 	int Spirit() const { return mSpirit; }
 	int Stamina() const { return mStamina; }
-	int Armor() const { return mArmor; }
+	int Defense() const { return mDefense; }
 	int Resistance() const { return mResistance; }
 
-	bool Dead() { return mHealth <= 0;  }
+	bool Dead() { return mHealth < 1;  }
 	void Heal(int amount) { mHealth += amount; if (mHealth > mMaxHealth) mHealth = mMaxHealth; }
 	void TakeDamage(int amount) { mHealth -= amount; }
 

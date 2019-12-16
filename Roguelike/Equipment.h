@@ -1,4 +1,5 @@
-#pragma once
+#ifndef EQUIPMENT_H
+#define EQUIPMENT_H
 
 #include "Equippable.h"
 
@@ -16,5 +17,15 @@ public:
 	Equippable* Unequip(EquipmentSlot slot);
 
 	Equippable* GetSlot(EquipmentSlot slot);
+
+	int Damage() const;
+	int Strength() const;
+	int Agility() const;
+	int Intellect() const;
+	int Spirit() const;
+	int Stamina() const;
+	int Defense() const;
+	int Resistance() const;
 };
 
+#endif
