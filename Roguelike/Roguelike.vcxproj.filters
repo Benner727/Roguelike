@@ -65,16 +65,16 @@
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
     <ClCompile Include="Entity.cpp">
-      <Filter>Source Files\Game\Actors</Filter>
+      <Filter>Source Files\Game\Player</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>Source Files\Game\Actors</Filter>
+      <Filter>Source Files\Game\Player</Filter>
     </ClCompile>
     <ClCompile Include="Equipment.cpp">
-      <Filter>Source Files\Game\Actors</Filter>
+      <Filter>Source Files\Game\Player</Filter>
     </ClCompile>
     <ClCompile Include="Inventory.cpp">
-      <Filter>Source Files\Game\Actors</Filter>
+      <Filter>Source Files\Game\Player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -157,16 +157,16 @@
       <Filter>Header Files\Game\Items</Filter>
     </ClInclude>
     <ClInclude Include="Entity.h">
-      <Filter>Header Files\Game\Actors</Filter>
+      <Filter>Header Files\Game\Player</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>Header Files\Game\Actors</Filter>
+      <Filter>Header Files\Game\Player</Filter>
     </ClInclude>
     <ClInclude Include="Equipment.h">
-      <Filter>Header Files\Game\Actors</Filter>
+      <Filter>Header Files\Game\Player</Filter>
     </ClInclude>
     <ClInclude Include="Inventory.h">
-      <Filter>Header Files\Game\Actors</Filter>
+      <Filter>Header Files\Game\Player</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -200,10 +200,10 @@
     <Filter Include="Source Files\Game\Map">
       <UniqueIdentifier>{e049b3a6-ae4b-4a1d-846b-2356fc2d8878}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Game\Actors">
+    <Filter Include="Header Files\Game\Player">
       <UniqueIdentifier>{81809585-54fe-461e-ae0e-9c2f85736af1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Game\Actors">
+    <Filter Include="Source Files\Game\Player">
       <UniqueIdentifier>{f230daf5-8c53-47ca-8e38-28e08fc37232}</UniqueIdentifier>
     </Filter>
   </ItemGroup>

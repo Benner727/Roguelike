@@ -12,14 +12,16 @@ public:
 
 protected:
 	Sprite mSprite;
+	Point mPos;
 	
 	std::string mName;
-	Point mPos;
 
 	int mHealth;
 	int mMaxHealth;
 
+	int mDamage;
 	int mStrength;
+	int mAgility;
 	int mIntellect;
 	int mSpirit;
 	int mStamina;
@@ -33,9 +35,11 @@ public:
 	void Rename(std::string name) { mName = name; }
 
 	int Health() const { return mHealth; }
-	int MaxHealth() const { return mMaxHealth; }
-
+	int MaxHealth() const { return mMaxHealth; }	
+	
+	int Damage() const { return mDamage; }
 	int Strength() const { return mStrength; }
+	int Agility() const { return mAgility; }
 	int Intellect() const { return mIntellect; }
 	int Spirit() const { return mSpirit; }
 	int Stamina() const { return mStamina; }

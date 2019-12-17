@@ -19,6 +19,8 @@ private:
 	Inventory mInventory;
 	Equipment mEquipment;
 
+	void CalculateStats();
+
 public:
 	bool InventoryFull() const { return mInventory.Full(); }
 	void PickUp(Item* item);

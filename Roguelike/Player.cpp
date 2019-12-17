@@ -6,6 +6,7 @@
 Player::Player(Point pos)
 	: Entity(pos, Sprite(SPRITE_TILE_X, SPRITE_TILE_Y, { 255, 255, 255 }))
 {
+	CalculateStats();
 }
 
 Player::Player(int x, int y)
@@ -15,6 +16,22 @@ Player::Player(int x, int y)
 
 Player::~Player()
 {
+}
+
+void Player::CalculateStats()
+{
+	mDamage = mEquipment.Damage();
+	mStrength = mEquipment.Strength();
+	mAgility = mEquipment.Agility();
+	mIntellect = mEquipment.Intellect();
+	mSpirit = mEquipment.Spirit();
+	mStamina = mEquipment.Stamina();
+	mDefense = mEquipment.Defense();
+	mResistance = mEquipment.Resistance();
+
+	int health = mMaxHealth;
+	mMaxHealth = ((float)mStamina / 4.0f) * 100 + 100;
+	mHealth += mMaxHealth - health;
 }
 
 void Player::PickUp(Item* item)
@@ -88,6 +105,8 @@ void Player::Equip(int index)
 			if (shield != nullptr)
 				mInventory.Add(shield);
 		}
+
+		CalculateStats();
 	}
 }
 
@@ -97,4 +116,6 @@ void Player::Unequip(int slot)
 
 	if (unequippedSlot != nullptr)
 		mInventory.Add(unequippedSlot);
+
+	CalculateStats();
 }
