@@ -2,110 +2,141 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="AssetManager.cpp">
-      <Filter>Source Files\Framework</Filter>
+      <Filter>Source Files\Engine</Filter>
     </ClCompile>
     <ClCompile Include="Audio.cpp">
-      <Filter>Source Files\Framework</Filter>
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Consumable.cpp">
+      <Filter>Source Files\Game\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="CaveGenerator.cpp">
+      <Filter>Source Files\Game\Map</Filter>
     </ClCompile>
     <ClCompile Include="Engine.cpp">
-      <Filter>Source Files\Framework</Filter>
+      <Filter>Source Files\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Graphics.cpp">
-      <Filter>Source Files\Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="InputHandler.cpp">
-      <Filter>Source Files\Framework</Filter>
+    <ClCompile Include="DungeonGenerator.cpp">
+      <Filter>Source Files\Game\Map</Filter>
     </ClCompile>
     <ClCompile Include="EventHandler.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Equippable.cpp">
+      <Filter>Source Files\Game\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>Source Files\Game\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="InputHandler.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemBuilder.cpp">
+      <Filter>Source Files\Game\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelGenerator.cpp">
+      <Filter>Source Files\Game\Map</Filter>
     </ClCompile>
     <ClCompile Include="Map.cpp">
       <Filter>Source Files\Game\Map</Filter>
     </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="MapGenerator.cpp">
       <Filter>Source Files\Game\Map</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
+    <ClCompile Include="MessageLog.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
     <ClCompile Include="Room.cpp">
       <Filter>Source Files\Game\Map</Filter>
     </ClCompile>
     <ClCompile Include="Sprite.cpp">
-      <Filter>Source Files\Framework</Filter>
+      <Filter>Source Files\Engine</Filter>
     </ClCompile>
     <ClCompile Include="Text.cpp">
-      <Filter>Source Files\Framework</Filter>
+      <Filter>Source Files\Engine</Filter>
     </ClCompile>
     <ClCompile Include="Timer.cpp">
-      <Filter>Source Files\Framework</Filter>
+      <Filter>Source Files\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="DungeonGenerator.cpp">
-      <Filter>Source Files\Game\Map</Filter>
-    </ClCompile>
-    <ClCompile Include="CaveGenerator.cpp">
-      <Filter>Source Files\Game\Map</Filter>
-    </ClCompile>
-    <ClCompile Include="MessageLog.cpp">
-      <Filter>Source Files\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Consumable.cpp" />
-    <ClCompile Include="Equippable.cpp" />
-    <ClCompile Include="Item.cpp" />
-    <ClCompile Include="ItemBuilder.cpp" />
-    <ClCompile Include="LevelGenerator.cpp" />
     <ClCompile Include="Entity.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Game\Player</Filter>
     </ClCompile>
-    <ClCompile Include="Item.cpp">
-      <Filter>Source Files\Game\Items</Filter>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Game\Player</Filter>
     </ClCompile>
-    <ClCompile Include="Equippable.cpp">
-      <Filter>Source Files\Game\Items</Filter>
+    <ClCompile Include="Equipment.cpp">
+      <Filter>Source Files\Game\Player</Filter>
     </ClCompile>
-    <ClCompile Include="Consumable.cpp">
-      <Filter>Source Files\Game\Items</Filter>
-    </ClCompile>
-    <ClCompile Include="ItemBuilder.cpp">
-      <Filter>Source Files\Game\Items</Filter>
+    <ClCompile Include="Inventory.cpp">
+      <Filter>Source Files\Game\Player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Armor.h">
+      <Filter>Header Files\Game\Items</Filter>
+    </ClInclude>
     <ClInclude Include="AssetManager.h">
-      <Filter>Header Files\Framework</Filter>
+      <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Audio.h">
-      <Filter>Header Files\Framework</Filter>
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="CaveGenerator.h">
+      <Filter>Header Files\Game\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="DungeonGenerator.h">
+      <Filter>Header Files\Game\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Consumable.h">
+      <Filter>Header Files\Game\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Equippable.h">
+      <Filter>Header Files\Game\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="FOV.h">
+      <Filter>Header Files\Game\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>Header Files\Game\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="InputHandler.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemBuilder.h">
+      <Filter>Header Files\Game\Items</Filter>
     </ClInclude>
     <ClInclude Include="EventHandler.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
-    <ClInclude Include="FOV.h">
+    <ClInclude Include="MathHelper.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Engine.h">
-      <Filter>Header Files\Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics.h">
-      <Filter>Header Files\Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="InputHandler.h">
-      <Filter>Header Files\Framework</Filter>
+    <ClInclude Include="MessageLog.h">
+      <Filter>Header Files\Game</Filter>
     </ClInclude>
     <ClInclude Include="Map.h">
+      <Filter>Header Files\Game\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelGenerator.h">
       <Filter>Header Files\Game\Map</Filter>
     </ClInclude>
     <ClInclude Include="MapGenerator.h">
       <Filter>Header Files\Game\Map</Filter>
     </ClInclude>
-    <ClInclude Include="MathHelper.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Header Files\Game</Filter>
+    <ClInclude Include="MiniMap.h">
+      <Filter>Header Files\Game\Map</Filter>
     </ClInclude>
     <ClInclude Include="RNG.h">
       <Filter>Header Files\Game</Filter>
@@ -114,90 +145,66 @@
       <Filter>Header Files\Game\Map</Filter>
     </ClInclude>
     <ClInclude Include="Sprite.h">
-      <Filter>Header Files\Framework</Filter>
+      <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Text.h">
-      <Filter>Header Files\Framework</Filter>
+      <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Timer.h">
-      <Filter>Header Files\Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="CaveGenerator.h">
-      <Filter>Header Files\Game\Map</Filter>
-    </ClInclude>
-    <ClInclude Include="DungeonGenerator.h">
-      <Filter>Header Files\Game\Map</Filter>
-    </ClInclude>
-    <ClInclude Include="MessageLog.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="MiniMap.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
-<<<<<<< HEAD
-    <ClInclude Include="Armor.h" />
-    <ClInclude Include="Consumable.h" />
-    <ClInclude Include="Equippable.h" />
-    <ClInclude Include="Item.h" />
-    <ClInclude Include="ItemBuilder.h" />
-    <ClInclude Include="LevelGenerator.h" />
-    <ClInclude Include="Weapon.h" />
-    <ClInclude Include="Entity.h">
-      <Filter>Header Files\Game</Filter>
-=======
-    <ClInclude Include="Item.h">
-      <Filter>Header Files\Game\Items</Filter>
-    </ClInclude>
-    <ClInclude Include="Equippable.h">
-      <Filter>Header Files\Game\Items</Filter>
-    </ClInclude>
-    <ClInclude Include="Armor.h">
-      <Filter>Header Files\Game\Items</Filter>
+      <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Weapon.h">
       <Filter>Header Files\Game\Items</Filter>
     </ClInclude>
-    <ClInclude Include="Consumable.h">
-      <Filter>Header Files\Game\Items</Filter>
+    <ClInclude Include="Entity.h">
+      <Filter>Header Files\Game\Player</Filter>
     </ClInclude>
-    <ClInclude Include="ItemBuilder.h">
-      <Filter>Header Files\Game\Items</Filter>
->>>>>>> master
+    <ClInclude Include="Player.h">
+      <Filter>Header Files\Game\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Equipment.h">
+      <Filter>Header Files\Game\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Inventory.h">
+      <Filter>Header Files\Game\Player</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{4e3fbf8d-f6b8-43e7-bd61-b814bbd2844c}</UniqueIdentifier>
+      <UniqueIdentifier>{98dde77f-56d3-4b04-b008-56d63eafd471}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{929df202-5c80-4763-9f7d-e886e0dda53a}</UniqueIdentifier>
+      <UniqueIdentifier>{0e97799f-97ff-4240-a35c-0a61804c4bd8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resources">
-      <UniqueIdentifier>{700943eb-8b08-41ea-8383-4d374e11d093}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Framework">
-      <UniqueIdentifier>{f348754a-12ce-4bb4-b189-fe4afc283fec}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Framework">
-      <UniqueIdentifier>{9fb699df-3919-4c59-980e-682ec73a9b7b}</UniqueIdentifier>
+    <Filter Include="Header Files\Engine">
+      <UniqueIdentifier>{83a5d78e-4310-416c-8139-ff36f1677906}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Game">
-      <UniqueIdentifier>{3b88c97e-fcd6-4dce-bdd3-6b2987f3fc71}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Game\Map">
-      <UniqueIdentifier>{288272ec-96fe-471e-9067-11ace20b5f61}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Game">
-      <UniqueIdentifier>{e7d5430a-322d-4bd3-8d95-8138e033ff4e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Game\Map">
-      <UniqueIdentifier>{e5e2d64d-df97-4ae3-98fd-e25619d00f95}</UniqueIdentifier>
+      <UniqueIdentifier>{618dc742-b286-4da1-a8fb-550a0fcf6bc4}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Game\Items">
-      <UniqueIdentifier>{e17493f5-c04b-4c4e-81da-93bbfb0911a6}</UniqueIdentifier>
+      <UniqueIdentifier>{3e2582e8-cc50-4864-8c80-513bccc12072}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game\Map">
+      <UniqueIdentifier>{a8de2a50-78ef-4bb8-a81a-f3ee00ccdfa4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine">
+      <UniqueIdentifier>{d5a8aa91-d2ae-49dd-8b58-6f0faafc3fd9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game">
+      <UniqueIdentifier>{57138e3e-f7e1-41a2-ba7f-ad5e549e7206}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Game\Items">
-      <UniqueIdentifier>{f4bfd074-e6c2-4b1c-959b-52ec9a41fd86}</UniqueIdentifier>
+      <UniqueIdentifier>{05ec73d4-e1ae-4ea0-8a38-4d71ec37408d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\Map">
+      <UniqueIdentifier>{e049b3a6-ae4b-4a1d-846b-2356fc2d8878}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game\Player">
+      <UniqueIdentifier>{81809585-54fe-461e-ae0e-9c2f85736af1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\Player">
+      <UniqueIdentifier>{f230daf5-8c53-47ca-8e38-28e08fc37232}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
