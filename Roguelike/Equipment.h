@@ -1,7 +1,8 @@
 #ifndef EQUIPMENT_H
 #define EQUIPMENT_H
 
-#include "Equippable.h"
+#include "Weapon.h"
+#include "Armor.h"
 
 class Equipment
 {

@@ -1,8 +1,6 @@
 #ifndef ITEMBUILDER_H
 #define ITEMBUILDER_H
 
-#include <map>
-
 #include "Weapon.h"
 #include "Armor.h"
 #include "RNG.h"
