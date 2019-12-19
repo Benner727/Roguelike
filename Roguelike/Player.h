@@ -23,12 +23,16 @@ private:
 
 public:
 	bool InventoryFull() const { return mInventory.Full(); }
+	bool InventoryOpen() const { return mInventory.Open(); }
+	void ToggleInventory() { mInventory.Toggle(); }
 	void PickUp(Item* item);
 	Item* Drop(int index);
 
 	bool CanEquip(int index);
 	void Equip(int index);
 	void Unequip(int slot);
+
+	void Draw();
 };
 
 #endif
