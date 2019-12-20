@@ -2,22 +2,15 @@
 
 #include "InputHandler.h"
 
+#include "MonsterBuilder.h"
+
 Map::Map(int width, int height)
 	: mWidth(width), mHeight(height)
 {
 	//mMapGenerator = new CaveGenerator(mWidth, mHeight);
 	mMapGenerator = new DungeonGenerator(mWidth, mHeight);
-	//mMapGenerator = new LevelGenerator(mWidth, mHeight);
 
-	mSeed = time(NULL);
-	for (auto& tileId : mMapGenerator->GenerateMap(mSeed))
-	{
-		if (tileId == 0)
-			mTiles.push_back(Tile(tileId, false, true));
-		else
-			mTiles.push_back(Tile(tileId, true, false));
-	}
-	std::cout << mSeed << std::endl;
+	GenerateNewMap();
 }
 
 

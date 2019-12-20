@@ -2,11 +2,11 @@
 
 
 
-Monster::Monster(Point pos, Sprite sprite, std::string name,
+Monster::Monster(Point pos, Sprite sprite, std::string name, bool elite,
 	int strength, int agility, int intellect, int spirit, int stamina,
 	int damage, CombatType type, int range,
 	int defense, int resistance)
-	: Entity(pos, sprite)
+	: Entity(pos, sprite), mElite(elite)
 {
 	mName = name;
 

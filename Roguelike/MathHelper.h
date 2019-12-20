@@ -87,4 +87,14 @@ inline std::vector<Point> GetLine(const Point& from, const Point& to)
 	return line;
 }
 
+inline float GetDistance(Point a, Point b)
+{
+	int distancex = (b.tileX - a.tileX) * (b.tileX - a.tileX);
+	int distancey = (b.tileY - a.tileY) * (b.tileY - a.tileY);
+
+	float distance = sqrt(distancex + distancey);
+
+	return distance;
+}
+
 #endif

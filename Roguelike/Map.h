@@ -52,9 +52,10 @@ public:
 	
 	void SetVisible(int x, int y, bool visible) { mTiles[x + y * mWidth].visible = visible; }
 
-	const std::vector<Tile> Tiles() { return mTiles; }
-	const Point StartPos() { return mMapGenerator->GetStart(); }
-	const Point EndPos() { return mMapGenerator->GetEnd(); }
+	std::vector<Tile> Tiles() const { return mTiles; }
+	Point StartPos() const { return mMapGenerator->GetStart(); }
+	Point EndPos() const { return mMapGenerator->GetEnd(); }
+	std::vector<Point> SpawnPoints() const { return mMapGenerator->PossibleSpawns(); }
 
 	void GenerateNewMap();
 

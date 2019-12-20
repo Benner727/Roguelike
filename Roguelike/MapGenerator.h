@@ -12,6 +12,9 @@ public:
 	MapGenerator(int width, int height);
 	virtual ~MapGenerator() {}
 
+private:
+	static const int SAFE_ZONE = 14;
+
 protected:
 	int mWidth;
 	int mHeight;
@@ -19,6 +22,8 @@ protected:
 
 	Point mStart;
 	Point mEnd;
+
+	std::vector<Point> mSpawnPoints;
 
 	std::vector<int> mTiles;
 
@@ -38,8 +43,10 @@ protected:
 	void CreateEntryPoints();
 
 public:
-	Point GetStart() { return mStart; }
-	Point GetEnd() { return mEnd; }
+	Point GetStart() const { return mStart; }
+	Point GetEnd() const { return mEnd; }
+
+	std::vector<Point> PossibleSpawns() const { return mSpawnPoints; }
 
 	virtual std::vector<int> GenerateMap(int seed) = 0;
 };
