@@ -1,7 +1,6 @@
 #include "Equipment.h"
 
-#include "Weapon.h"
-#include "Armor.h"
+
 
 Equipment::Equipment()
 {

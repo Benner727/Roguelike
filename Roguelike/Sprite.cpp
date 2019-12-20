@@ -24,10 +24,10 @@ void Sprite::Draw(int x, int y, bool ignoreCamera)
 {
 	SDL_Rect renderRect;
 
-	renderRect.x = x * TILE_SIZE;
-	renderRect.y = y * TILE_SIZE;
-	renderRect.w = mClipRect.w;
-	renderRect.h = mClipRect.h;
+	renderRect.x = x * TILE_SIZE * 1.5f;
+	renderRect.y = y * TILE_SIZE * 1.5f;
+	renderRect.w = mClipRect.w * 1.5f;
+	renderRect.h = mClipRect.h * 1.5f;
 
 	SDL_SetTextureColorMod(mTexture.get(), mColor.r, mColor.g, mColor.b);
 

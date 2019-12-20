@@ -1,8 +1,7 @@
 #ifndef WEAPON_H
 
 #include "Equippable.h"
-
-enum class CombatType { melee, ranged, magic };
+#include "ItemConstants.h"
 
 class Weapon : public Equippable
 {

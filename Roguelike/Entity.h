@@ -3,6 +3,7 @@
 
 #include "MathHelper.h"
 #include "Sprite.h"
+#include "ItemConstants.h"
 
 class Entity
 {
@@ -20,6 +21,9 @@ protected:
 	int mMaxHealth;
 
 	int mDamage;
+	CombatType mDamageType;
+	int mAttackRange;
+
 	int mStrength;
 	int mAgility;
 	int mIntellect;
@@ -38,6 +42,9 @@ public:
 	int MaxHealth() const { return mMaxHealth; }	
 	
 	int Damage() const { return mDamage; }
+	CombatType DamageType() const { return mDamageType; }
+	int AttackRange() const { return mAttackRange; }
+
 	int Strength() const { return mStrength; }
 	int Agility() const { return mAgility; }
 	int Intellect() const { return mIntellect; }

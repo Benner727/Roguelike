@@ -145,6 +145,8 @@
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="MapGenerator.cpp" />
     <ClCompile Include="MessageLog.cpp" />
+    <ClCompile Include="Monster.cpp" />
+    <ClCompile Include="MonsterBuilder.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="Sprite.cpp" />
@@ -169,12 +171,15 @@
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemBuilder.h" />
+    <ClInclude Include="ItemConstants.h" />
     <ClInclude Include="LevelGenerator.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="MapGenerator.h" />
     <ClInclude Include="MathHelper.h" />
     <ClInclude Include="MessageLog.h" />
     <ClInclude Include="MiniMap.h" />
+    <ClInclude Include="Monster.h" />
+    <ClInclude Include="MonsterBuilder.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="RNG.h" />
     <ClInclude Include="Room.h" />

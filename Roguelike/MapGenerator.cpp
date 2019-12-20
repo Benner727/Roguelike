@@ -267,4 +267,12 @@ void MapGenerator::CreateEntryPoints()
 		mStart = mEnd;
 		mEnd = temp;
 	}
+
+	for (int i = region.size() - 1; i >= 0; i--)
+	{
+		if (GetDistance(mStart, region[i]) > SAFE_ZONE)
+		{
+			mSpawnPoints.push_back(region[i]);
+		}
+	}
 }

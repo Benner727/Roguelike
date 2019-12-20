@@ -1,7 +1,6 @@
 #include "Player.h"
 
-#include "Weapon.h"
-#include "Armor.h"
+
 
 Player::Player(Point pos)
 	: Entity(pos, Sprite(SPRITE_TILE_X, SPRITE_TILE_Y, { 255, 255, 255 }))
@@ -21,6 +20,18 @@ Player::~Player()
 void Player::CalculateStats()
 {
 	mDamage = mEquipment.Damage();
+
+	if (Weapon* weapon = dynamic_cast<Weapon*>(mEquipment.GetSlot(EquipmentSlot::weapon)))
+	{
+		mDamageType = weapon->Type();
+		mAttackRange = weapon->Range();
+	}
+	else
+	{
+		mDamageType = CombatType::melee;
+		mAttackRange = 1;
+	}
+
 	mStrength = mEquipment.Strength();
 	mAgility = mEquipment.Agility();
 	mIntellect = mEquipment.Intellect();

@@ -76,6 +76,12 @@
     <ClCompile Include="Inventory.cpp">
       <Filter>Source Files\Game\Player</Filter>
     </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>Source Files\Game\Monsters</Filter>
+    </ClCompile>
+    <ClCompile Include="MonsterBuilder.cpp">
+      <Filter>Source Files\Game\Monsters</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Armor.h">
@@ -168,6 +174,15 @@
     <ClInclude Include="Inventory.h">
       <Filter>Header Files\Game\Player</Filter>
     </ClInclude>
+    <ClInclude Include="ItemConstants.h">
+      <Filter>Header Files\Game\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>Header Files\Game\Monsters</Filter>
+    </ClInclude>
+    <ClInclude Include="MonsterBuilder.h">
+      <Filter>Header Files\Game\Monsters</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
@@ -205,6 +220,12 @@
     </Filter>
     <Filter Include="Source Files\Game\Player">
       <UniqueIdentifier>{f230daf5-8c53-47ca-8e38-28e08fc37232}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game\Monsters">
+      <UniqueIdentifier>{ee64d045-caff-440c-9320-183af2760802}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\Monsters">
+      <UniqueIdentifier>{0b2c4587-8fac-4512-999a-b11ed3b9ae69}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
