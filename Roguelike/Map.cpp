@@ -70,6 +70,8 @@ const bool Map::Walkable(int x, int y)
 void Map::GenerateNewMap()
 {
 	mSeed = time(NULL);
+	std::cout << mSeed << std::endl;
+	
 	mTiles.clear();
 	for (auto& tileId : mMapGenerator->GenerateMap(mSeed))
 	{
@@ -78,7 +80,6 @@ void Map::GenerateNewMap()
 		else
 			mTiles.push_back(Tile(tileId, true, false));
 	}
-	std::cout << mSeed << std::endl;
 }
 
 void Map::Draw()
