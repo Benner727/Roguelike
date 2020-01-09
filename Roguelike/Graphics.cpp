@@ -119,7 +119,7 @@ void Graphics::ClearBackBuffer()
 	SDL_RenderClear(mRenderer.get());
 }
 
-void Graphics::DrawTexture(std::weak_ptr<SDL_Texture> tex, const SDL_Rect* clip, SDL_Rect* rend, bool ignoreCamera)
+void Graphics::DrawTexture(std::weak_ptr<SDL_Texture> tex, const SDL_Rect* clip, SDL_Rect* rend, float angle, SDL_RendererFlip flip, bool ignoreCamera)
 {
 	if (!ignoreCamera)
 	{
@@ -136,7 +136,7 @@ void Graphics::DrawTexture(std::weak_ptr<SDL_Texture> tex, const SDL_Rect* clip,
 		rend->y -= mCamera.y;
 	}
 
-	SDL_RenderCopyEx(mRenderer.get(), tex.lock().get(), clip, rend, 0.0f, nullptr, SDL_FLIP_NONE);
+	SDL_RenderCopyEx(mRenderer.get(), tex.lock().get(), clip, rend, angle, nullptr, flip);
 }
 
 void Graphics::SetCameraPos(int x, int y)

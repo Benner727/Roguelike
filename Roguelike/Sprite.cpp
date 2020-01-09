@@ -31,7 +31,7 @@ void Sprite::Draw(int x, int y, bool ignoreCamera)
 
 	SDL_SetTextureColorMod(mTexture.get(), mColor.r, mColor.g, mColor.b);
 
-	mGraphics.DrawTexture(mTexture, &mClipRect, &renderRect, ignoreCamera);
+	mGraphics.DrawTexture(mTexture, &mClipRect, &renderRect, 0.0f, SDL_FLIP_NONE, ignoreCamera);
 
 	SDL_SetTextureColorMod(mTexture.get(), 255, 255, 255);
 }

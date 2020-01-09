@@ -82,6 +82,9 @@
     <ClCompile Include="MonsterBuilder.cpp">
       <Filter>Source Files\Game\Monsters</Filter>
     </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Armor.h">
@@ -182,6 +185,9 @@
     </ClInclude>
     <ClInclude Include="MonsterBuilder.h">
       <Filter>Header Files\Game\Monsters</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Header Files\Engine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
