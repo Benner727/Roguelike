@@ -84,6 +84,7 @@
     </ClCompile>
     <ClCompile Include="Texture.cpp">
       <Filter>Source Files\Engine</Filter>
+    </ClCompile>
     <ClCompile Include="ItemTooltip.cpp">
       <Filter>Source Files\Game\Items</Filter>
     </ClCompile>
