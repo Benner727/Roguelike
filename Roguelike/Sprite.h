@@ -23,7 +23,7 @@ public:
 
 	void Alpha(int alpha) { SDL_SetTextureAlphaMod(mTexture.get(), alpha); }
 
-	void Draw(int x, int y, bool ignoreCamera = false);
+	void Draw(int x, int y, bool ignoreCamera = false, float scale = 1.5f, int offset_x = 0, int offset_y = 0);
 };
 
 #endif

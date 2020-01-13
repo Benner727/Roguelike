@@ -84,6 +84,8 @@
     </ClCompile>
     <ClCompile Include="Texture.cpp">
       <Filter>Source Files\Engine</Filter>
+    <ClCompile Include="ItemTooltip.cpp">
+      <Filter>Source Files\Game\Items</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -188,6 +190,9 @@
     </ClInclude>
     <ClInclude Include="Texture.h">
       <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemTooltip.h">
+      <Filter>Header Files\Game\Items</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

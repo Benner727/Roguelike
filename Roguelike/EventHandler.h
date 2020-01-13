@@ -25,6 +25,7 @@ public:
 	int MiniMapSize() { return mMiniMapSize; }
 
 	void HandlePlayer(Player& player, Map& map, MessageLog &messageLog);
+	void HandleInventory(Player& player);
 };
 
 #endif

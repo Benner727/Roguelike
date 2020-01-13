@@ -133,3 +133,61 @@ int Equipment::Resistance() const
 
 	return resistance;
 }
+
+void Equipment::_DrawEquippedItems()
+{
+	Equippable* mEquippable;
+	int x;
+	int y;
+	for (int slot = 0; slot < (int)EquipmentSlot::TOTAL_SLOTS; slot++)
+	{
+		int x;
+		int y;
+		mEquippable = mItems[slot];
+
+		switch ((EquipmentSlot) slot)
+		{
+		case EquipmentSlot::head:
+			x = 2; y = 0;
+			break;
+		case EquipmentSlot::chest:
+			x = 2; y = 1;
+			break;
+		case EquipmentSlot::legs:
+			x = 2; y = 2;
+			break;
+		case EquipmentSlot::boots:
+			x = 2; y = 3;
+			break;
+		case EquipmentSlot::cloak:
+			x = 3; y = 1;
+			break;
+		case EquipmentSlot::gloves:
+			x = 1; y = 1;
+			break;
+		case EquipmentSlot::ring:
+			x = 0; y = 1;
+			break;
+		case EquipmentSlot::amulet:
+			x = 3; y = 0;
+			break;
+		case EquipmentSlot::weapon:
+			x = 1; y = 2;
+			break;
+		case EquipmentSlot::shield:
+			x = 3; y = 2;
+			break;
+		}
+
+		Sprite(std::get<0>(DEFAULT_SLOT), std::get<1>(DEFAULT_SLOT), white).Draw(x, y, true, ITEM_SCALE, Sprite::TILE_SIZE, Sprite::TILE_SIZE);
+		if (mEquippable) mEquippable->Draw(x, y, true, ITEM_SCALE / 2, 1);
+	}
+}
+
+void Equipment::Draw()
+{
+	if (mOpen)
+	{
+		_DrawEquippedItems();
+	}
+}

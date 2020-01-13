@@ -20,14 +20,14 @@ Sprite::~Sprite()
 }
 
 
-void Sprite::Draw(int x, int y, bool ignoreCamera)
+void Sprite::Draw(int x, int y, bool ignoreCamera, float scale, int offset_x, int offset_y)
 {
 	SDL_Rect renderRect;
 
-	renderRect.x = x * TILE_SIZE * 1.5f;
-	renderRect.y = y * TILE_SIZE * 1.5f;
-	renderRect.w = mClipRect.w * 1.5f;
-	renderRect.h = mClipRect.h * 1.5f;
+	renderRect.x = x * TILE_SIZE * scale + (offset_x);
+	renderRect.y = y * TILE_SIZE * scale + (offset_y);
+	renderRect.w = mClipRect.w * scale;
+	renderRect.h = mClipRect.h * scale;
 
 	SDL_SetTextureColorMod(mTexture.get(), mColor.r, mColor.g, mColor.b);
 

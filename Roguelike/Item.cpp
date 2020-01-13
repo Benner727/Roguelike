@@ -12,7 +12,7 @@ Item::~Item()
 {
 }
 
-void Item::Draw(int x, int y)
+void Item::Draw(int x, int y, bool ignoreCamera, int scale, int offset)
 {
-	mSprite.Draw(x, y);
+	mSprite.Draw(x * scale + offset, y * scale + offset, ignoreCamera, scale);
 }

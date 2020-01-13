@@ -23,7 +23,7 @@ public:
 	void AddAmount(int amount) { mAmount += amount; }
 	void RemoveAmount(int amount) { mAmount -= amount; }
 
-	void Draw(int x, int y);
+	void Draw(int x, int y, bool ignoreCamera = true, int scale = 1, int offset = 0);
 };
 
 #endif
