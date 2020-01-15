@@ -2,17 +2,48 @@
 
 #include "Sprite.h"
 
-Inventory::Inventory()
-{
-	mTooltip = new ItemTooltip(INVENTORY_WIDTH + 4, INVENTORY_HEIGHT / 2 + 1);
-}
 
+Inventory::Inventory() :
+	mSlotDefault(DEFAULT_SLOT.tileX, DEFAULT_SLOT.tileY, white),
+	mSlotSelected(SELECTED_SLOT.tileX, SELECTED_SLOT.tileY, white),
+	mInventoryBackground("inventory-bg.png")
+{
+	// to do: remove; this is for demonstration purposes
+	std::string itemName = "Cool Helmet";
+	mItems.push_back(new Equippable(itemName, Sprite(0, 22, white), EquipmentSlot::head, ItemQuality::poor, 1, 10, 10, 10, 0, 100));
+
+	mTooltip = new ItemTooltip(mItems[0], INVENTORY_WIDTH + 4, INVENTORY_HEIGHT / 2 + 1, { INVENTORY_WIDTH + 1, INVENTORY_HEIGHT / 2 });
+	mInventoryBackground.Color({ 0, 0, 0, 255 });
+	mInventoryBackground.Pos({ Graphics::SCREEN_WIDTH / 2, Graphics::SCREEN_HEIGHT / 2});
+
+	_InitializeSprites();
+}
 
 Inventory::~Inventory()
 {
 	for (auto& item : mItems)
 		delete item;
 	delete mTooltip;
+}
+
+void Inventory::_InitializeSprites()
+{
+	mBorderSprites.push_back(Sprite(0, 16, white, 0, 0)); // top left
+	mBorderSprites.push_back(Sprite(2, 16, white, INVENTORY_WIDTH, 0)); // top right
+	mBorderSprites.push_back(Sprite(0, 18, white, 0, INVENTORY_HEIGHT)); // bottom left
+	mBorderSprites.push_back(Sprite(2, 18, white, INVENTORY_WIDTH, INVENTORY_HEIGHT)); // bottom right
+
+	for (int horizontal = 1; horizontal < INVENTORY_WIDTH; horizontal++)
+	{
+		mBorderSprites.push_back(Sprite(1, 16, white, horizontal, 0));
+		mBorderSprites.push_back(Sprite(1, 18, white, horizontal, INVENTORY_HEIGHT));
+	}
+
+	for (int vertical = 1; vertical < INVENTORY_HEIGHT; ++vertical)
+	{
+		mBorderSprites.push_back(Sprite(0, 17, white, 0, vertical));
+		mBorderSprites.push_back(Sprite(2, 17, white, INVENTORY_WIDTH, vertical));
+	}
 }
 
 void Inventory::Add(Item* item)
@@ -38,29 +69,9 @@ Item* Inventory::GetIndex(int index)
 
 void Inventory::_DrawInventoryContainer()
 {
-	for (int y = 0; y < Graphics::SCREEN_HEIGHT; y++)
+	for (int i = 0; i < mBorderSprites.size(); i++)
 	{
-		for (int x = 0; x < Graphics::SCREEN_WIDTH; x++)
-		{
-			Graphics::Instance().DrawPixel(x, y, transparent_black);
-		}
-	}
-
-	Sprite(0, 16, white).Draw(0, 0, true, 1.f); // top left
-	Sprite(2, 16, white).Draw(INVENTORY_WIDTH, 0, true, 1.f); // top right
-	Sprite(0, 18, white).Draw(0, INVENTORY_HEIGHT, true, 1.f); // bottom left
-	Sprite(2, 18, white).Draw(INVENTORY_WIDTH, INVENTORY_HEIGHT, true, 1.f); // bottom right
-
-	for (int horizontal = 1; horizontal < INVENTORY_WIDTH; horizontal++)
-	{
-		Sprite(1, 16, white).Draw(horizontal, 0, true, 1.f);
-		Sprite(1, 18, white).Draw(horizontal, INVENTORY_HEIGHT, true, 1.f);
-	}
-
-	for (int vertical = 1; vertical < INVENTORY_HEIGHT; ++vertical)
-	{
-		Sprite(0, 17, white).Draw(0, vertical, true, 1.f);
-		Sprite(2, 17, white).Draw(INVENTORY_WIDTH, vertical, true, 1.f);
+		mBorderSprites[i].DrawFixed(true, 1.f);
 	}
 }
 
@@ -120,11 +131,15 @@ void Inventory::_DrawInventoryItems()
 			item->Draw(x, y, true, ITEM_SCALE / 2, 1);
 		}
 
-		int xSprite = (mSelected == index) ? std::get<0>(SELECTED_SLOT) : std::get<0>(DEFAULT_SLOT);
-		int ySprite = (mSelected == index) ? std::get<1>(SELECTED_SLOT) : std::get<1>(DEFAULT_SLOT);
-
 		// draw item slot
-		Sprite(xSprite, ySprite, white).Draw(x, y, true, ITEM_SCALE, Sprite::TILE_SIZE, Sprite::TILE_SIZE);
+		if (mSelected == index)
+		{
+			mSlotSelected.Draw(x, y, true, ITEM_SCALE, Sprite::TILE_SIZE, Sprite::TILE_SIZE);
+		}
+		else
+		{
+			mSlotDefault.Draw(x, y, true, ITEM_SCALE, Sprite::TILE_SIZE, Sprite::TILE_SIZE);
+		}
 	}
 }
 
@@ -132,7 +147,7 @@ void Inventory::_DrawItemInfo()
 {
 	if (mSelected > -1)
 	{
-		mTooltip->Draw(INVENTORY_WIDTH + 1, INVENTORY_HEIGHT / 2);
+		mTooltip->Draw();
 	}
 }
 
@@ -140,6 +155,7 @@ void Inventory::Draw()
 {
 	if (mOpen)
 	{
+		mInventoryBackground.Render(true);
 		_DrawInventoryContainer();
 		_DrawInventoryItems();
 		_DrawItemInfo();

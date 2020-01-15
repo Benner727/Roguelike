@@ -76,7 +76,7 @@ void EventHandler::HandlePlayer(Player& player, Map& map, MessageLog &messageLog
 
 void EventHandler::HandleInventory(Player& player)
 {
-	bool leftClicked = mInputHandler.MouseButtonDown(InputHandler::left);
+	bool leftClicked = mInputHandler.MouseButtonPressed(InputHandler::left);
 	bool pressed_E = mInputHandler.LastKey() == SDL_SCANCODE_E;
 
 	Inventory& inventory = player.Inventory();

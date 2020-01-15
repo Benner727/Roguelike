@@ -2,7 +2,9 @@
 
 
 
-Equipment::Equipment()
+Equipment::Equipment() :
+	mSlotDefault(Sprite(DEFAULT_SLOT.tileX, DEFAULT_SLOT.tileY, white)),
+	mSlotSelected(Sprite(SELECTED_SLOT.tileX, SELECTED_SLOT.tileY, white))
 {
 	for (int i = 0; i < (int)EquipmentSlot::TOTAL_SLOTS; i++)
 		mItems[i] = nullptr;
@@ -134,6 +136,7 @@ int Equipment::Resistance() const
 	return resistance;
 }
 
+
 void Equipment::_DrawEquippedItems()
 {
 	Equippable* mEquippable;
@@ -179,8 +182,11 @@ void Equipment::_DrawEquippedItems()
 			break;
 		}
 
-		Sprite(std::get<0>(DEFAULT_SLOT), std::get<1>(DEFAULT_SLOT), white).Draw(x, y, true, ITEM_SCALE, Sprite::TILE_SIZE, Sprite::TILE_SIZE);
-		if (mEquippable) mEquippable->Draw(x, y, true, ITEM_SCALE / 2, 1);
+		if (mEquippable)
+		{
+			mEquippable->Draw(x, y, true, ITEM_SCALE / 2, 1);
+		}
+		mSlotDefault.Draw(x, y, true, ITEM_SCALE, Sprite::TILE_SIZE, Sprite::TILE_SIZE);
 	}
 }
 

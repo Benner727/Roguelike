@@ -4,7 +4,9 @@
 #include "Equipment.h"
 #include "Item.h"
 #include "ItemTooltip.h"
+#include "MathHelper.h"
 #include "Sprite.h"
+#include "Texture.h"
 
 #include <vector>
 
@@ -20,23 +22,24 @@ private:
 
 	const int INVENTORY_HEIGHT = (Graphics::SCREEN_HEIGHT / Sprite::TILE_SIZE) - 1;
 	const int INVENTORY_WIDTH = (Graphics::SCREEN_WIDTH  / Sprite::TILE_SIZE / 2) - 3;
+	const Point DEFAULT_SLOT = Point(23, 26);
+	const Point SELECTED_SLOT = Point(19, 24);
 
 	const SDL_Color transparent_black = { 0, 0, 0, 180 };
 	const SDL_Color white = { 255, 255, 255, 255 };
-	const SDL_Color gray = { 100, 100, 100, 100 };
-	const SDL_Color brown = { 115, 87, 63, 255 };
-	const std::tuple<int, int> DEFAULT_SLOT = std::make_tuple(23, 26);
-	const std::tuple<int, int> SELECTED_SLOT = std::make_tuple(19, 24);
 
 	int mSelected = -1;
 
 	ItemTooltip* mTooltip;
 	bool mOpen = false;
 
-	std::string itemName = "Cool Helmet";
-	Item* mItem = new Equippable(itemName, Sprite(0, 22, white), EquipmentSlot::head, ItemQuality::poor, 1, 10, 10, 10, 0, 100);
-	std::vector<Item*> mItems = { mItem };
+	std::vector<Item*> mItems;
+	std::vector<Sprite> mBorderSprites;
+	Sprite mSlotDefault;
+	Sprite mSlotSelected;
+	Texture mInventoryBackground;
 
+	void _InitializeSprites();
 	void _DrawInventoryContainer();
 	void _DrawInventoryItems();
 	void _DrawItemInfo();

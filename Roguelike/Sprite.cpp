@@ -15,10 +15,33 @@ Sprite::Sprite(int x, int y, SDL_Color color)
 }
 
 
+Sprite::Sprite(int x, int y, SDL_Color color, int fixedX, int fixedY)
+	: mGraphics(Graphics::Instance()), mColor(color)
+{
+	mTexture = AssetManager::Instance().GetTexture("tilesheet.png");
+
+	SDL_SetTextureBlendMode(mTexture.get(), SDL_BLENDMODE_BLEND);
+
+	mClipRect.x = x * TILE_SIZE + x;
+	mClipRect.y = y * TILE_SIZE + y;
+
+	mClipRect.w = TILE_SIZE;
+	mClipRect.h = TILE_SIZE;
+
+	mPositionX = fixedX;
+	mPositionY = fixedY;
+}
+
+
 Sprite::~Sprite()
 {
 }
 
+
+void Sprite::DrawFixed(bool ignoreCamera, float scale, int offset_x, int offset_y)
+{
+	Draw(mPositionX, mPositionY, ignoreCamera, scale, offset_x, offset_y);
+}
 
 void Sprite::Draw(int x, int y, bool ignoreCamera, float scale, int offset_x, int offset_y)
 {
