@@ -130,3 +130,10 @@ void Player::Unequip(int slot)
 
 	CalculateStats();
 }
+
+void Player::Draw()
+{
+	mSprite.Draw(mPos.tileX, mPos.tileY);
+	mInventory.Draw();
+	mEquipment.Draw();
+}
